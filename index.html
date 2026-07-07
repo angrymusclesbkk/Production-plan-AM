@@ -1,10 +1,6 @@
 <!DOCTYPE html>
-<html lang="th">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>แผนการผลิต — Angry Muscles</title>
-<script>/*!
+<html lang="th"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>แผนการผลิต — Angry Muscles</title><script>/*!
  * Chart.js v4.5.1
  * https://www.chartjs.org
  * (c) 2025 Chart.js Contributors
@@ -20,169 +16,59 @@
 //# sourceMappingURL=chart.umd.js.map
 </script>
 <style>
-  :root{
-    --bg:#faf8f3; --surface:#ffffff; --surface-alt:#f2efe7;
-    --ink:#232320; --ink-2:#5c5a53; --ink-3:#8a887f;
-    --line:#e5e3da; --line-2:#d6d3c8;
-    --red-bg:#fbe9e7; --red:#b23a2e; --red-line:#e0533f;
-    --amber-bg:#fbf0d9; --amber:#8a5808;
-    --green-bg:#e2f4ec; --green:#0d6b52;
-    --blue-bg:#e7f0fa; --blue:#1a5fa0;
-    --accent:#e0533f;
-  }
-  @media (prefers-color-scheme:dark){
-    :root{
-      --bg:#1a1917; --surface:#232220; --surface-alt:#2b2a27;
-      --ink:#f2efe7; --ink-2:#c2c0b6; --ink-3:#8a887f;
-      --line:#33322e; --line-2:#444139;
-      --red-bg:#3a1512; --red:#f0968a; --red-line:#e0533f;
-      --amber-bg:#3a2a0e; --amber:#f5c877;
-      --green-bg:#0b2a22; --green:#5fcaa4;
-      --blue-bg:#0d2842; --blue:#83b6e8;
-      --accent:#e0533f;
-    }
-  }
-  *{box-sizing:border-box;}
-  body{margin:0;background:var(--bg);color:var(--ink);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Sarabun","Noto Sans Thai",sans-serif;
-    line-height:1.55;-webkit-font-smoothing:antialiased;}
-  .wrap{max-width:960px;margin:0 auto;padding:28px 16px 64px;}
-  .eyebrow{font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:6px;}
-  h1{font-size:26px;font-weight:700;margin:0 0 3px;letter-spacing:-0.01em;}
-  .sub{font-size:13px;color:var(--ink-3);margin-bottom:24px;}
-  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:30px;}
-  .card{border-radius:14px;padding:15px 17px;}
-  .card .lbl{font-size:12.5px;margin-bottom:5px;font-weight:500;}
-  .card .val{font-size:27px;font-weight:700;line-height:1;}
-  .card .val small{font-size:13px;font-weight:500;}
-  .sec{font-size:18px;font-weight:700;margin:0 0 3px;letter-spacing:-0.01em;}
-  .sec-sub{font-size:13px;color:var(--ink-2);margin-bottom:16px;}
-  .round{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:15px 17px;margin-bottom:12px;}
-  .round.u{border:2px solid var(--red-line);}
-  .rhead{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:13px;}
-  .rleft{display:flex;align-items:center;gap:11px;flex-wrap:wrap;}
-  .rn{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:9px;font-size:14px;font-weight:700;background:var(--blue-bg);color:var(--blue);}
-  .rn.u{background:var(--red-bg);color:var(--red);}
-  .rlab{font-size:15px;font-weight:600;}
-  .rtot{font-size:13px;color:var(--ink-2);font-weight:500;}
-  .chips{display:flex;flex-wrap:wrap;gap:7px;}
-  .chip{display:inline-flex;align-items:baseline;gap:6px;border:1px solid var(--line);background:var(--surface-alt);border-radius:9px;padding:6px 11px;}
-  .chip .cn{font-size:13px;font-weight:600;}
-  .chip .cq{font-size:15px;font-weight:700;color:var(--accent);}
-  table{width:100%;border-collapse:collapse;font-size:13px;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;}
-  th,td{padding:9px 11px;text-align:right;border-bottom:1px solid var(--line);}
-  th{background:var(--surface-alt);font-weight:600;color:var(--ink-2);font-size:12px;position:sticky;top:0;}
-  td:first-child,th:first-child{text-align:left;font-weight:600;}
-  tr:last-child td{border-bottom:none;}
-  .pill{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:20px;}
-  .pill.r{background:var(--red-bg);color:var(--red);}
-  .pill.a{background:var(--amber-bg);color:var(--amber);}
-  .pill.g{background:var(--green-bg);color:var(--green);}
-  .addcell{font-weight:700;}
-  .chart-box{position:relative;width:100%;height:620px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;}
-  .legend{display:flex;flex-wrap:wrap;gap:16px;font-size:12px;color:var(--ink-2);margin:10px 2px 14px;}
-  .legend span{display:flex;align-items:center;gap:6px;}
-  .dot{width:11px;height:11px;border-radius:3px;}
-  .note{margin-top:22px;padding:15px 17px;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:12px;font-size:13px;color:var(--ink-2);}
-  .note b{color:var(--ink);}
-  .foot{margin-top:26px;font-size:12px;color:var(--ink-3);text-align:center;}
-  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
-  @media(max-width:560px){h1{font-size:22px;} .card .val{font-size:23px;}}
-</style>
-</head>
-<body>
-<div class="wrap">
-  <div class="eyebrow">Angry Muscles · แผนการผลิต</div>
-  <h1>สั่งผลิตอะไร เท่าไหร่ รอบไหน</h1>
-  <div class="sub">เป้าหมาย: สต็อกอยู่ถึง 31 ส.ค. 2026 · ข้อมูล ณ 7 ก.ค. 2026 · หักของค้างส่งที่กำลังมาแล้ว</div>
-
-  <div class="cards">
-    <div class="card" style="background:var(--red-bg);">
-      <div class="lbl" style="color:var(--red);">ของหมดหน้าร้าน</div>
-      <div class="val" style="color:var(--red);">2 <small>สี/ไซส์</small></div>
-    </div>
-    <div class="card" style="background:var(--blue-bg);">
-      <div class="lbl" style="color:var(--blue);">กำลังจะมา (ค้างส่ง)</div>
-      <div class="val" style="color:var(--blue);">1,111 <small>คู่</small></div>
-    </div>
-    <div class="card" style="background:var(--surface-alt);">
-      <div class="lbl" style="color:var(--ink-2);">ต้องสั่งผลิตเพิ่ม</div>
-      <div class="val">5,070 <small>คู่</small></div>
-    </div>
-    <div class="card" style="background:var(--surface-alt);">
-      <div class="lbl" style="color:var(--ink-2);">แบ่งส่ง</div>
-      <div class="val">8 <small>รอบ</small></div>
-    </div>
-  </div>
-
-  <div class="sec">แผนรับของแต่ละรอบ</div>
-  <div class="sec-sub">คละสี/ไซส์ตามที่โรงงานส่งจริง (~650 คู่/รอบ) · รอบ 1 กรอบแดง = เริ่มก่อน · ตัวเลขสีส้ม = จำนวนคู่</div>
-  <div id="rounds"></div>
-
-  <div class="sec" style="margin-top:30px;">ตารางคำนวณ — ทำไมต้องสั่งเท่านี้</div>
-  <div class="sec-sub">สั่งเพิ่ม = (ขาย/วัน × 55 วัน × เผื่อ 15%) − หน้าร้าน − ค้างส่ง · เรียงจากด่วนสุด</div>
-  <div class="scroll">
-  <table>
-    <thead><tr>
-      <th>สี / ไซส์</th><th>ขาย/วัน</th><th>หน้าร้าน</th><th>ค้างส่ง</th>
-      <th>รวมมีจริง</th><th>อยู่ได้</th><th>สั่งเพิ่ม</th>
-    </tr></thead>
-    <tbody id="tbody"></tbody>
-  </table>
-  </div>
-
-  <div class="sec" style="margin-top:30px;">สต็อกหน้าร้านจะหมดในกี่วัน</div>
-  <div class="sec-sub">นับเฉพาะของหน้าร้าน (ยังไม่รวมค้างส่ง) — เห็นว่าตัวไหนต้องรีบ</div>
-  <div class="legend">
-    <span><span class="dot" style="background:#c9382b;"></span>หมด / วิกฤต (&lt;15 วัน)</span>
-    <span><span class="dot" style="background:#e0a800;"></span>ใกล้หมด (&lt;40 วัน)</span>
-    <span><span class="dot" style="background:#12946e;"></span>ยังพอ</span>
-  </div>
-  <div class="chart-box"><canvas id="chart" role="img" aria-label="กราฟจำนวนวันที่สต็อกหน้าร้านจะพอขาย"></canvas></div>
-
-  <div class="note">
-    <b>อ่านก่อนสั่ง:</b> ตัวเลข "สั่งเพิ่ม" หักของค้างส่งที่กำลังจะมาออกให้แล้ว จึงสั่งได้เลยไม่ซ้ำซ้อน · <b>White (S)</b> และ <b>Pink (S)</b> ของหมดหน้าร้านและไม่มีค้างส่ง = ต้องเร่งสุด (มาทุกรอบตั้งแต่รอบ 1) · <b>Red (M), Blue-gray (M), Purple (M)</b> ไม่ต้องสั่ง เพราะของหน้าร้าน + ค้างส่งพอถึงสิ้น ส.ค. · รุ่น HNY ยกเลิกการผลิต
-  </div>
-  <div class="foot">Angry Muscles · อัปเดต 7 ก.ค. 2026 · ยอดขาย/วันจากรายงานสรุปยอดขาย เผื่อ buffer 15%</div>
+:root{--bg:#faf8f3;--surface:#fff;--surface-alt:#f2efe7;--ink:#232320;--ink-2:#5c5a53;--ink-3:#8a887f;--line:#e5e3da;--red-bg:#fbe9e7;--red:#b23a2e;--red-line:#e0533f;--amber-bg:#fbf0d9;--amber:#8a5808;--green-bg:#e2f4ec;--green:#0d6b52;--blue-bg:#e7f0fa;--blue:#1a5fa0;--accent:#e0533f;}
+@media(prefers-color-scheme:dark){:root{--bg:#1a1917;--surface:#232220;--surface-alt:#2b2a27;--ink:#f2efe7;--ink-2:#c2c0b6;--ink-3:#8a887f;--line:#33322e;--red-bg:#3a1512;--red:#f0968a;--red-line:#e0533f;--amber-bg:#3a2a0e;--amber:#f5c877;--green-bg:#0b2a22;--green:#5fcaa4;--blue-bg:#0d2842;--blue:#83b6e8;--accent:#e0533f;}}
+*{box-sizing:border-box;}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Sarabun","Noto Sans Thai",sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:960px;margin:0 auto;padding:28px 16px 64px;}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:6px;}
+h1{font-size:26px;font-weight:700;margin:0 0 3px;letter-spacing:-.01em;}
+.sub{font-size:13px;color:var(--ink-3);margin-bottom:10px;}
+.stamp{display:inline-block;font-size:12px;font-weight:600;color:var(--green);background:var(--green-bg);padding:3px 10px;border-radius:20px;margin-bottom:22px;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:30px;}
+.card{border-radius:14px;padding:15px 17px;}.card .lbl{font-size:12.5px;margin-bottom:5px;font-weight:500;}.card .val{font-size:27px;font-weight:700;line-height:1;}.card .val small{font-size:13px;font-weight:500;}
+.sec{font-size:18px;font-weight:700;margin:0 0 3px;letter-spacing:-.01em;}.sec-sub{font-size:13px;color:var(--ink-2);margin-bottom:16px;}
+.round{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:15px 17px;margin-bottom:12px;}.round.u{border:2px solid var(--red-line);}
+.rhead{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:13px;}.rleft{display:flex;align-items:center;gap:11px;flex-wrap:wrap;}
+.rn{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:9px;font-size:14px;font-weight:700;background:var(--blue-bg);color:var(--blue);}.rn.u{background:var(--red-bg);color:var(--red);}
+.rlab{font-size:15px;font-weight:600;}.rtot{font-size:13px;color:var(--ink-2);font-weight:500;}
+.chips{display:flex;flex-wrap:wrap;gap:7px;}.chip{display:inline-flex;align-items:baseline;gap:6px;border:1px solid var(--line);background:var(--surface-alt);border-radius:9px;padding:6px 11px;}.chip .cn{font-size:13px;font-weight:600;}.chip .cq{font-size:15px;font-weight:700;color:var(--accent);}
+table{width:100%;border-collapse:collapse;font-size:13px;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;}th,td{padding:9px 11px;text-align:right;border-bottom:1px solid var(--line);}th{background:var(--surface-alt);font-weight:600;color:var(--ink-2);font-size:12px;}td:first-child,th:first-child{text-align:left;font-weight:600;}tr:last-child td{border-bottom:none;}
+.pill{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:20px;}.pill.r{background:var(--red-bg);color:var(--red);}.pill.a{background:var(--amber-bg);color:var(--amber);}.pill.g{background:var(--green-bg);color:var(--green);}
+.addcell{font-weight:700;}.chart-box{position:relative;width:100%;height:620px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;}
+.legend{display:flex;flex-wrap:wrap;gap:16px;font-size:12px;color:var(--ink-2);margin:10px 2px 14px;}.legend span{display:flex;align-items:center;gap:6px;}.dot{width:11px;height:11px;border-radius:3px;}
+.note{margin-top:22px;padding:15px 17px;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:12px;font-size:13px;color:var(--ink-2);}.note b{color:var(--ink);}
+.foot{margin-top:26px;font-size:12px;color:var(--ink-3);text-align:center;}.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+@media(max-width:560px){h1{font-size:22px;}.card .val{font-size:23px;}}
+</style></head><body><div class="wrap">
+<div class="eyebrow">Angry Muscles · แผนการผลิต</div>
+<h1>สั่งผลิตอะไร เท่าไหร่ รอบไหน</h1>
+<div class="sub">เป้าหมาย: สต็อกอยู่ถึง 31 ส.ค. 2026 · หักของค้างส่งที่กำลังมาแล้ว</div>
+<div class="stamp">✓ อัปเดตสต็อกหน้าร้านหลังจัดส่งวันที่ 7 ก.ค. 2026</div>
+<div class="cards">
+<div class="card" style="background:var(--red-bg);"><div class="lbl" style="color:var(--red);">ของหมด/ติดลบ</div><div class="val" style="color:var(--red);">1 <small>สี/ไซส์</small></div></div>
+<div class="card" style="background:var(--blue-bg);"><div class="lbl" style="color:var(--blue);">กำลังจะมา (ค้างส่ง)</div><div class="val" style="color:var(--blue);">1,111 <small>คู่</small></div></div>
+<div class="card" style="background:var(--surface-alt);"><div class="lbl" style="color:var(--ink-2);">ต้องสั่งผลิตเพิ่ม</div><div class="val">5,300 <small>คู่</small></div></div>
+<div class="card" style="background:var(--surface-alt);"><div class="lbl" style="color:var(--ink-2);">แบ่งส่ง</div><div class="val">9 <small>รอบ</small></div></div>
 </div>
-
+<div class="sec">แผนรับของแต่ละรอบ</div>
+<div class="sec-sub">คละสี/ไซส์ตามที่โรงงานส่งจริง (~650 คู่/รอบ) · รอบ 1 กรอบแดง = เริ่มก่อน · ตัวเลขสีส้ม = จำนวนคู่</div>
+<div id="rounds"></div>
+<div class="sec" style="margin-top:30px;">ตารางคำนวณ — ทำไมต้องสั่งเท่านี้</div>
+<div class="sec-sub">สั่งเพิ่ม = (ขาย/วัน × 55 วัน × เผื่อ 15%) − หน้าร้าน − ค้างส่ง · เรียงจากด่วนสุด</div>
+<div class="scroll"><table><thead><tr><th>สี / ไซส์</th><th>ขาย/วัน</th><th>หน้าร้าน</th><th>ค้างส่ง</th><th>รวมมีจริง</th><th>อยู่ได้</th><th>สั่งเพิ่ม</th></tr></thead><tbody id="tbody"></tbody></table></div>
+<div class="sec" style="margin-top:30px;">สต็อกหน้าร้านจะหมดในกี่วัน</div>
+<div class="sec-sub">นับเฉพาะของหน้าร้าน (ยังไม่รวมค้างส่ง)</div>
+<div class="legend"><span><span class="dot" style="background:#c9382b;"></span>หมด / วิกฤต (&lt;15 วัน)</span><span><span class="dot" style="background:#e0a800;"></span>ใกล้หมด (&lt;40 วัน)</span><span><span class="dot" style="background:#12946e;"></span>ยังพอ</span></div>
+<div class="chart-box"><canvas id="chart" role="img" aria-label="กราฟจำนวนวันที่สต็อกหน้าร้านจะพอขาย"></canvas></div>
+<div class="note"><b>อ่านก่อนสั่ง:</b> "สั่งเพิ่ม" หักค้างส่งที่กำลังมาออกให้แล้ว สั่งได้เลยไม่ซ้ำ · <b>Pink (S) ติดลบ −18</b> = ขายเกินสต็อก (พรีออเดอร์/ค้างเคลียร์) ด่วนสุด · <b>White (S)</b> เหลือ 5 คู่ เกือบหมด · <b>Red (M), Blue-gray (M), Purple (M)</b> ไม่ต้องสั่ง ของ+ค้างส่งพอถึงสิ้น ส.ค. · รุ่น HNY ยกเลิกการผลิต</div>
+<div class="foot">Angry Muscles · อัปเดต 7 ก.ค. 2026 · ยอดขาย/วันจากรายงานสรุปยอดขาย เผื่อ buffer 15%</div>
+</div>
 <script>
-const rows=[{"name": "White (S)", "rate": 18.4, "onhand": 0, "backo": 0, "have": 0, "add": 1170, "cover_now": 0, "cover_have": 0}, {"name": "Pink (S)", "rate": 13.5, "onhand": 0, "backo": 0, "have": 0, "add": 860, "cover_now": 0, "cover_have": 0}, {"name": "Mint (S)", "rate": 8.0, "onhand": 80, "backo": 0, "have": 80, "add": 430, "cover_now": 10, "cover_have": 10}, {"name": "Neon Green (S)", "rate": 6.9, "onhand": 98, "backo": 0, "have": 98, "add": 340, "cover_now": 14, "cover_have": 14}, {"name": "Purple (S)", "rate": 6.6, "onhand": 81, "backo": 54, "have": 135, "add": 290, "cover_now": 12, "cover_have": 20}, {"name": "Pride (S)", "rate": 8.0, "onhand": 194, "backo": 0, "have": 194, "add": 320, "cover_now": 24, "cover_have": 24}, {"name": "Pride (M)", "rate": 5.9, "onhand": 140, "backo": 0, "have": 140, "add": 240, "cover_now": 24, "cover_have": 24}, {"name": "White (M)", "rate": 10.8, "onhand": 153, "backo": 142, "have": 295, "add": 390, "cover_now": 14, "cover_have": 27}, {"name": "Black (S)", "rate": 9.1, "onhand": 157, "backo": 112, "have": 269, "add": 310, "cover_now": 17, "cover_have": 30}, {"name": "Orange (S)", "rate": 6.0, "onhand": 156, "backo": 56, "have": 212, "add": 170, "cover_now": 26, "cover_have": 35}, {"name": "Black (M)", "rate": 8.2, "onhand": 150, "backo": 166, "have": 316, "add": 210, "cover_now": 18, "cover_have": 39}, {"name": "Orange (M)", "rate": 3.9, "onhand": 161, "backo": 0, "have": 161, "add": 90, "cover_now": 41, "cover_have": 41}, {"name": "Mint (M)", "rate": 3.6, "onhand": 97, "backo": 55, "have": 152, "add": 80, "cover_now": 27, "cover_have": 42}, {"name": "Blue-gray (S)", "rate": 4.8, "onhand": 114, "backo": 120, "have": 234, "add": 70, "cover_now": 24, "cover_have": 49}, {"name": "Red (S)", "rate": 5.5, "onhand": 306, "backo": 0, "have": 306, "add": 50, "cover_now": 56, "cover_have": 56}, {"name": "Pink (M)", "rate": 5.2, "onhand": 134, "backo": 175, "have": 309, "add": 20, "cover_now": 26, "cover_have": 59}, {"name": "Neon Green (M)", "rate": 5.0, "onhand": 294, "backo": 0, "have": 294, "add": 30, "cover_now": 59, "cover_have": 59}, {"name": "Red (M)", "rate": 3.5, "onhand": 233, "backo": 0, "have": 233, "add": 0, "cover_now": 67, "cover_have": 67}, {"name": "Blue-gray (M)", "rate": 4.1, "onhand": 193, "backo": 174, "have": 367, "add": 0, "cover_now": 47, "cover_have": 90}, {"name": "Purple (M)", "rate": 2.9, "onhand": 334, "backo": 57, "have": 391, "add": 0, "cover_now": 115, "cover_have": 135}];
-const rounds=[[{"name": "White (S)", "qty": 120, "cover": 0, "onhand": 0, "backo": 0}, {"name": "Pink (S)", "qty": 120, "cover": 0, "onhand": 0, "backo": 0}, {"name": "Mint (S)", "qty": 120, "cover": 10, "onhand": 80, "backo": 0}, {"name": "Neon Green (S)", "qty": 120, "cover": 14, "onhand": 98, "backo": 0}, {"name": "Purple (S)", "qty": 120, "cover": 12, "onhand": 81, "backo": 54}, {"name": "Orange (M)", "qty": 50, "cover": 41, "onhand": 161, "backo": 0}], [{"name": "White (S)", "qty": 120, "cover": 0, "onhand": 0, "backo": 0}, {"name": "Pink (S)", "qty": 120, "cover": 0, "onhand": 0, "backo": 0}, {"name": "Mint (S)", "qty": 120, "cover": 10, "onhand": 80, "backo": 0}, {"name": "Neon Green (S)", "qty": 120, "cover": 14, "onhand": 98, "backo": 0}, {"name": "Purple (S)", "qty": 120, "cover": 12, "onhand": 81, "backo": 54}, {"name": "Orange (M)", "qty": 40, "cover": 41, "onhand": 161, "backo": 0}, {"name": "Mint (M)", "qty": 10, "cover": 27, "onhand": 97, "backo": 55}], [{"name": "White (S)", "qty": 120, "cover": 0, "onhand": 0, "backo": 0}, {"name": "Pink (S)", "qty": 120, "cover": 0, "onhand": 0, "backo": 0}, {"name": "Mint (S)", "qty": 120, "cover": 10, "onhand": 80, "backo": 0}, {"name": "Neon Green (S)", "qty": 100, "cover": 14, "onhand": 98, "backo": 0}, {"name": "Purple (S)", "qty": 50, "cover": 12, "onhand": 81, "backo": 54}, {"name": "Pride (S)", "qty": 120, "cover": 24, "onhand": 194, "backo": 0}, {"name": "Mint (M)", "qty": 20, "cover": 27, "onhand": 97, "backo": 55}], [{"name": "White (S)", "qty": 120, "cover": 0, "onhand": 0, "backo": 0}, {"name": "Pink (S)", "qty": 120, "cover": 0, "onhand": 0, "backo": 0}, {"name": "Mint (S)", "qty": 70, "cover": 10, "onhand": 80, "backo": 0}, {"name": "Pride (S)", "qty": 120, "cover": 24, "onhand": 194, "backo": 0}, {"name": "Pride (M)", "qty": 120, "cover": 24, "onhand": 140, "backo": 0}, {"name": "Mint (M)", "qty": 50, "cover": 27, "onhand": 97, "backo": 55}, {"name": "Blue-gray (S)", "qty": 50, "cover": 24, "onhand": 114, "backo": 120}], [{"name": "White (S)", "qty": 120, "cover": 0, "onhand": 0, "backo": 0}, {"name": "Pink (S)", "qty": 120, "cover": 0, "onhand": 0, "backo": 0}, {"name": "Pride (S)", "qty": 80, "cover": 24, "onhand": 194, "backo": 0}, {"name": "Pride (M)", "qty": 120, "cover": 24, "onhand": 140, "backo": 0}, {"name": "White (M)", "qty": 120, "cover": 14, "onhand": 153, "backo": 142}, {"name": "Blue-gray (S)", "qty": 20, "cover": 24, "onhand": 114, "backo": 120}, {"name": "Red (S)", "qty": 50, "cover": 56, "onhand": 306, "backo": 0}, {"name": "Pink (M)", "qty": 20, "cover": 26, "onhand": 134, "backo": 175}], [{"name": "White (S)", "qty": 120, "cover": 0, "onhand": 0, "backo": 0}, {"name": "Pink (S)", "qty": 120, "cover": 0, "onhand": 0, "backo": 0}, {"name": "White (M)", "qty": 120, "cover": 14, "onhand": 153, "backo": 142}, {"name": "Black (S)", "qty": 120, "cover": 17, "onhand": 157, "backo": 112}, {"name": "Orange (S)", "qty": 120, "cover": 26, "onhand": 156, "backo": 56}, {"name": "Neon Green (M)", "qty": 30, "cover": 59, "onhand": 294, "backo": 0}], [{"name": "White (S)", "qty": 120, "cover": 0, "onhand": 0, "backo": 0}, {"name": "Pink (S)", "qty": 120, "cover": 0, "onhand": 0, "backo": 0}, {"name": "White (M)", "qty": 120, "cover": 14, "onhand": 153, "backo": 142}, {"name": "Black (S)", "qty": 120, "cover": 17, "onhand": 157, "backo": 112}, {"name": "Orange (S)", "qty": 50, "cover": 26, "onhand": 156, "backo": 56}, {"name": "Black (M)", "qty": 120, "cover": 18, "onhand": 150, "backo": 166}], [{"name": "White (S)", "qty": 330}, {"name": "Pink (S)", "qty": 20}, {"name": "White (M)", "qty": 30}, {"name": "Black (S)", "qty": 70}, {"name": "Black (M)", "qty": 90}]];
-
-// rounds
+const rows=[{"name": "Pink (S)", "rate": 13.5, "onhand": -18, "backo": 0, "have": -18, "add": 880, "cover_now": -1, "cover_have": -1}, {"name": "White (S)", "rate": 18.4, "onhand": 5, "backo": 0, "have": 5, "add": 1160, "cover_now": 0, "cover_have": 0}, {"name": "Mint (S)", "rate": 8.0, "onhand": 49, "backo": 0, "have": 49, "add": 460, "cover_now": 6, "cover_have": 6}, {"name": "Neon Green (S)", "rate": 6.9, "onhand": 81, "backo": 0, "have": 81, "add": 360, "cover_now": 12, "cover_have": 12}, {"name": "Purple (S)", "rate": 6.6, "onhand": 64, "backo": 54, "have": 118, "add": 300, "cover_now": 10, "cover_have": 18}, {"name": "Pride (M)", "rate": 5.9, "onhand": 130, "backo": 0, "have": 130, "add": 250, "cover_now": 22, "cover_have": 22}, {"name": "Pride (S)", "rate": 8.0, "onhand": 185, "backo": 0, "have": 185, "add": 330, "cover_now": 23, "cover_have": 23}, {"name": "White (M)", "rate": 10.8, "onhand": 131, "backo": 142, "have": 273, "add": 420, "cover_now": 12, "cover_have": 25}, {"name": "Black (S)", "rate": 9.1, "onhand": 136, "backo": 112, "have": 248, "add": 330, "cover_now": 15, "cover_have": 27}, {"name": "Orange (S)", "rate": 6.0, "onhand": 145, "backo": 56, "have": 201, "add": 180, "cover_now": 24, "cover_have": 34}, {"name": "Black (M)", "rate": 8.2, "onhand": 134, "backo": 166, "have": 300, "add": 220, "cover_now": 16, "cover_have": 37}, {"name": "Orange (M)", "rate": 3.9, "onhand": 152, "backo": 0, "have": 152, "add": 100, "cover_now": 39, "cover_have": 39}, {"name": "Mint (M)", "rate": 3.6, "onhand": 92, "backo": 55, "have": 147, "add": 90, "cover_now": 26, "cover_have": 41}, {"name": "Blue-gray (S)", "rate": 4.8, "onhand": 98, "backo": 120, "have": 218, "add": 90, "cover_now": 20, "cover_have": 45}, {"name": "Red (S)", "rate": 5.5, "onhand": 287, "backo": 0, "have": 287, "add": 70, "cover_now": 52, "cover_have": 52}, {"name": "Pink (M)", "rate": 5.2, "onhand": 125, "backo": 175, "have": 300, "add": 30, "cover_now": 24, "cover_have": 58}, {"name": "Neon Green (M)", "rate": 5.0, "onhand": 288, "backo": 0, "have": 288, "add": 30, "cover_now": 58, "cover_have": 58}, {"name": "Red (M)", "rate": 3.5, "onhand": 222, "backo": 0, "have": 222, "add": 0, "cover_now": 63, "cover_have": 63}, {"name": "Blue-gray (M)", "rate": 4.1, "onhand": 187, "backo": 174, "have": 361, "add": 0, "cover_now": 46, "cover_have": 88}, {"name": "Purple (M)", "rate": 2.9, "onhand": 327, "backo": 57, "have": 384, "add": 0, "cover_now": 113, "cover_have": 132}];const rounds=[[{"name": "Pink (S)", "qty": 120}, {"name": "White (S)", "qty": 120}, {"name": "Mint (S)", "qty": 120}, {"name": "Neon Green (S)", "qty": 120}, {"name": "Purple (S)", "qty": 120}, {"name": "Orange (M)", "qty": 50}], [{"name": "Pink (S)", "qty": 120}, {"name": "White (S)", "qty": 120}, {"name": "Mint (S)", "qty": 120}, {"name": "Neon Green (S)", "qty": 120}, {"name": "Purple (S)", "qty": 120}, {"name": "Orange (M)", "qty": 50}], [{"name": "Pink (S)", "qty": 120}, {"name": "White (S)", "qty": 120}, {"name": "Mint (S)", "qty": 120}, {"name": "Neon Green (S)", "qty": 120}, {"name": "Purple (S)", "qty": 60}, {"name": "Mint (M)", "qty": 90}, {"name": "Blue-gray (S)", "qty": 20}], [{"name": "Pink (S)", "qty": 120}, {"name": "White (S)", "qty": 120}, {"name": "Mint (S)", "qty": 100}, {"name": "Pride (M)", "qty": 120}, {"name": "Pride (S)", "qty": 120}, {"name": "Blue-gray (S)", "qty": 70}], [{"name": "Pink (S)", "qty": 120}, {"name": "White (S)", "qty": 120}, {"name": "Pride (M)", "qty": 120}, {"name": "Pride (S)", "qty": 120}, {"name": "White (M)", "qty": 120}, {"name": "Red (S)", "qty": 50}], [{"name": "Pink (S)", "qty": 120}, {"name": "White (S)", "qty": 120}, {"name": "Pride (M)", "qty": 10}, {"name": "Pride (S)", "qty": 90}, {"name": "White (M)", "qty": 120}, {"name": "Black (S)", "qty": 120}, {"name": "Red (S)", "qty": 20}, {"name": "Pink (M)", "qty": 30}, {"name": "Neon Green (M)", "qty": 20}], [{"name": "Pink (S)", "qty": 120}, {"name": "White (S)", "qty": 120}, {"name": "White (M)", "qty": 120}, {"name": "Black (S)", "qty": 120}, {"name": "Orange (S)", "qty": 120}, {"name": "Neon Green (M)", "qty": 10}], [{"name": "Pink (S)", "qty": 40}, {"name": "White (S)", "qty": 120}, {"name": "White (M)", "qty": 60}, {"name": "Black (S)", "qty": 90}, {"name": "Orange (S)", "qty": 60}, {"name": "Black (M)", "qty": 120}], [{"name": "White (S)", "qty": 200}, {"name": "Black (M)", "qty": 100}]];
 const rc=document.getElementById('rounds');
-rounds.forEach((rd,i)=>{
-  const n=i+1, tot=rd.reduce((a,b)=>a+b.qty,0), u=(n===1);
-  const el=document.createElement('div'); el.className='round'+(u?' u':'');
-  let chips=rd.map(x=>`<span class="chip"><span class="cn">${x.name}</span><span class="cq">${x.qty}</span></span>`).join('');
-  el.innerHTML=`<div class="rhead"><div class="rleft"><span class="rn ${u?'u':''}">${n}</span><span class="rlab">รอบ ${n}${u?' — เริ่มก่อน':''}</span></div><span class="rtot">รวม ${tot} คู่</span></div><div class="chips">${chips}</div>`;
-  rc.appendChild(el);
-});
-
-// table
+rounds.forEach((rd,i)=>{const n=i+1,tot=rd.reduce((a,b)=>a+b.qty,0),u=(n===1);const el=document.createElement('div');el.className='round'+(u?' u':'');let chips=rd.map(x=>`<span class="chip"><span class="cn">${x.name}</span><span class="cq">${x.qty}</span></span>`).join('');el.innerHTML=`<div class="rhead"><div class="rleft"><span class="rn ${u?'u':''}">${n}</span><span class="rlab">รอบ ${n}${u?' — เริ่มก่อน':''}</span></div><span class="rtot">รวม ${tot} คู่</span></div><div class="chips">${chips}</div>`;rc.appendChild(el);});
 const tb=document.getElementById('tbody');
-rows.forEach(r=>{
-  let pill, cover=r.cover_now;
-  if(r.onhand===0) pill='<span class="pill r">หมด</span>';
-  else if(cover<15) pill=`<span class="pill r">${cover} วัน</span>`;
-  else if(cover<40) pill=`<span class="pill a">${cover} วัน</span>`;
-  else pill=`<span class="pill g">${cover} วัน</span>`;
-  const addtxt=r.add>0?`<span style="color:var(--accent)">${r.add.toLocaleString()}</span>`:'<span style="color:var(--ink-3)">—</span>';
-  tb.innerHTML+=`<tr><td>${r.name}</td><td>${r.rate}</td><td>${r.onhand}</td><td>${r.backo||'—'}</td><td>${r.have}</td><td>${pill}</td><td class="addcell">${addtxt}</td></tr>`;
-});
-
-// chart
-const cd=[...rows].sort((a,b)=>a.cover_now-b.cover_now);
-const col=cd.map(d=>d.cover_now<15?'#c9382b':d.cover_now<40?'#e0a800':'#12946e');
-new Chart(document.getElementById('chart'),{
-  type:'bar',
-  data:{labels:cd.map(d=>d.name),datasets:[{data:cd.map(d=>d.cover_now),backgroundColor:col,borderRadius:4,borderSkipped:false,barThickness:16}]},
-  options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
-    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.x===0?'หมดแล้ว':'หน้าร้านพอขาย '+c.parsed.x+' วัน'}}},
-    scales:{x:{title:{display:true,text:'จำนวนวันที่หน้าร้านพอขาย',color:'#8a887f',font:{size:12}},grid:{color:'rgba(140,138,130,0.15)'},ticks:{color:'#8a887f'}},
-            y:{grid:{display:false},ticks:{color:'#8a887f',font:{size:12}}}}}
-});
-</script>
-</body>
-</html>
+rows.forEach(r=>{let pill,cover=r.cover_now;if(r.onhand<=0)pill='<span class="pill r">'+(r.onhand<0?'ติดลบ':'หมด')+'</span>';else if(cover<15)pill=`<span class="pill r">${cover} วัน</span>`;else if(cover<40)pill=`<span class="pill a">${cover} วัน</span>`;else pill=`<span class="pill g">${cover} วัน</span>`;const addtxt=r.add>0?`<span style="color:var(--accent)">${r.add.toLocaleString()}</span>`:'<span style="color:var(--ink-3)">—</span>';tb.innerHTML+=`<tr><td>${r.name}</td><td>${r.rate}</td><td>${r.onhand}</td><td>${r.backo||'—'}</td><td>${r.have}</td><td>${pill}</td><td class="addcell">${addtxt}</td></tr>`;});
+const cd=[...rows].sort((a,b)=>a.cover_now-b.cover_now);const col=cd.map(d=>d.cover_now<15?'#c9382b':d.cover_now<40?'#e0a800':'#12946e');
+new Chart(document.getElementById('chart'),{type:'bar',data:{labels:cd.map(d=>d.name),datasets:[{data:cd.map(d=>Math.max(d.cover_now,0)),backgroundColor:col,borderRadius:4,borderSkipped:false,barThickness:16}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>{const d=cd[c.dataIndex];return d.onhand<0?'ติดลบ '+d.onhand+' (ขายเกินสต็อก)':d.cover_now===0?'หมดแล้ว':'หน้าร้านพอขาย '+d.cover_now+' วัน';}}}},scales:{x:{title:{display:true,text:'จำนวนวันที่หน้าร้านพอขาย',color:'#8a887f',font:{size:12}},grid:{color:'rgba(140,138,130,0.15)'},ticks:{color:'#8a887f'}},y:{grid:{display:false},ticks:{color:'#8a887f',font:{size:12}}}}}});
+</script></body></html>
