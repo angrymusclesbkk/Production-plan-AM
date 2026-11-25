@@ -81,7 +81,7 @@
 | อัตราค่าส่ง / ส่งฟรีเมื่อยอดเท่าไหร่ | env `SHIPPING_FEE`, `FREE_SHIPPING_MIN` ใน Vercel (**ถ้าไม่ใส่ เว็บจะไม่เปิดรับเงิน**) |
 | นโยบายเปลี่ยน/คืน · ขนส่ง · ระยะส่ง · PDPA | แก้ใน `src/app/(shop)/policies/[slug]/page.tsx` (ให้ Claude Code แก้ได้) |
 | รูปผ้าโพกหัว `AMHP` ชมพู, `AMMB` ดำ | วางไฟล์ใน `public/images/products/` แล้วใส่ชื่อไฟล์ใน `data/products.json` |
-| ตรวจ SKU ที่เหลือกับ MyOrder | RUN, OG, ผ้าโพกหัว, MAX REP, X’MAS (34 รหัส) |
+| เพิ่มรหัส `BBTBXL` (Baby Tee ดำ XL) ใน MyOrder | SKU อื่นตรงกับ MyOrder ครบแล้ว |
 
 ## ข้อควรรู้
 
