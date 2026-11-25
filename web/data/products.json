@@ -1,0 +1,769 @@
+{
+  "_about": "ข้อมูลสินค้า Angry Muscles สำหรับเว็บไซต์ · ราคาจาก MyOrder วันที่ 20 พ.ย. 2026 · เว็บไม่นับสต็อกเป็นตัวเลข ใช้สถานะการขายต่อตัวเลือก (availability) ที่แอดมินกดสลับได้",
+  "currency": "THB",
+  "availability_values": {
+    "on_sale": "พร้อมขาย — ใส่ตะกร้าและจ่ายเงินในเว็บได้",
+    "preorder": "รอพรีออเดอร์ — ของกำลังมา ปุ่มพาไป LINE",
+    "unavailable": "ยังไม่พร้อมขาย — ยังเห็นในเว็บ แต่ปุ่มพาไป LINE"
+  },
+  "published_note": "published = false คือปิดทั้งรุ่น ไม่ขึ้นเว็บเลย (ไม่อยู่ใน sitemap, หน้าสินค้าตอบ 404)",
+  "line_url": "https://lin.ee/SNUS5D2",
+  "line_id": "@angrymuscles",
+  "social": {
+    "tiktok": "https://www.tiktok.com/@angrymusclesbkk",
+    "instagram": "https://www.instagram.com/angrymusclesth/",
+    "shopee": "https://shopee.co.th/shop/1483326246"
+  },
+  "categories": [
+    {
+      "id": "run",
+      "label": "วิ่ง · HYROX · เวท"
+    },
+    {
+      "id": "pilates",
+      "label": "พิลาทิส · โยคะ"
+    },
+    {
+      "id": "daily",
+      "label": "ใส่ทุกวัน"
+    },
+    {
+      "id": "apparel",
+      "label": "เสื้อ & ผ้าโพกหัว"
+    }
+  ],
+  "not_on_website": [
+    "ANGRY STICKERS (เจ้าของร้านสั่งไม่ขึ้นเว็บ)",
+    "Angry RUN HNY (หยุดขาย)",
+    "Angry RUN Halloween (เลิกขาย)",
+    "OG Socks รุ่นเก่า (ใช้แค่ OG NEW)",
+    "Cotton Bandana (ไม่ได้ขาย)"
+  ],
+  "products": [
+    {
+      "slug": "angry-run-xmas",
+      "name": "ANGRY RUN X’MAS",
+      "subtitle": "RUN ลายพิเศษ · Limited Christmas Drop",
+      "category": "run",
+      "published": true,
+      "price": 380,
+      "unit": "คู่",
+      "material": "80% Nylon · 15% Elastic · 5% Spandex",
+      "sizes": [
+        {
+          "code": "S",
+          "label": "22–26 cm",
+          "foot_cm": "22–26",
+          "eu": "35–41"
+        },
+        {
+          "code": "M",
+          "label": "26–30 cm",
+          "foot_cm": "26–30",
+          "eu": "41–46"
+        }
+      ],
+      "size_note": "22–26 cm = เท้า 22–26 ซม. (EU 35–41) · 26–30 cm = เท้า 26–30 ซม. (EU 41–46) · เท้า 26 ซม. / EU 41 ใส่ได้ทั้งสองไซส์: ชอบกระชับเลือก 22–26 cm ชอบสบายเลือก 26–30 cm · ความกว้างเท่ากันทั้ง 2 ไซส์",
+      "size_chart": "/images/size-charts/run.webp",
+      "features": [
+        "ลายลิมิเต็ด: MERRY / XMAS ด้านหน้า · ANGRY / MUSCLES ด้านหลัง · ปลายเท้า NO DAYS OFF / แรงเกินต้าน",
+        "พื้นหนานุ่มเต็มฝ่าเท้า (Full-Sole Cushion) ลดแรงกระแทก",
+        "กระชับ ไม่ร่น ไม่ย้วย ไม่เลื่อนระหว่างเคลื่อนไหว"
+      ],
+      "image_bg": "#F9F9F9",
+      "variants": [
+        {
+          "sku": "RUNCS",
+          "color": "X’MAS",
+          "color_hex": "#FFFFFF",
+          "size": "S",
+          "availability": "on_sale",
+          "image": "/images/products/run-xmas.webp"
+        },
+        {
+          "sku": "RUNCM",
+          "color": "X’MAS",
+          "color_hex": "#FFFFFF",
+          "size": "M",
+          "availability": "on_sale",
+          "image": "/images/products/run-xmas.webp"
+        }
+      ]
+    },
+    {
+      "slug": "angry-run",
+      "name": "ANGRY RUN",
+      "subtitle": "ถุงเท้าวิ่ง & เวท ซัพพอร์ตเต็มฝ่าเท้า",
+      "category": "run",
+      "published": true,
+      "price": 340,
+      "unit": "คู่",
+      "material": "80% Nylon · 15% Elastic · 5% Spandex",
+      "sizes": [
+        {
+          "code": "S",
+          "label": "22–26 cm",
+          "foot_cm": "22–26",
+          "eu": "35–41"
+        },
+        {
+          "code": "M",
+          "label": "26–30 cm",
+          "foot_cm": "26–30",
+          "eu": "41–46"
+        }
+      ],
+      "size_note": "22–26 cm = เท้า 22–26 ซม. (EU 35–41) · 26–30 cm = เท้า 26–30 ซม. (EU 41–46) · เท้า 26 ซม. / EU 41 ใส่ได้ทั้งสองไซส์: ชอบกระชับเลือก 22–26 cm ชอบสบายเลือก 26–30 cm · ความกว้างเท่ากันทั้ง 2 ไซส์",
+      "size_chart": "/images/size-charts/run.webp",
+      "features": [
+        "พื้นหนานุ่มเต็มฝ่าเท้า (Full-Sole Cushion) ลดแรงกระแทก",
+        "เสริมความแข็งแรงที่ปลายเท้าและส้นเท้า ทรงตามรูปเท้า",
+        "ตาข่ายระบายอากาศ ลดความอับชื้น",
+        "กระชับ ไม่ร่น ไม่ย้วย ไม่เลื่อนระหว่างเคลื่อนไหว",
+        "Unisex · วิ่ง เทรล ยิม เวท HYROX"
+      ],
+      "variants": [
+        {
+          "sku": "RUNWS",
+          "color": "White",
+          "color_hex": "#F2EEF0",
+          "size": "S",
+          "availability": "on_sale",
+          "image": "/images/products/run-white.webp"
+        },
+        {
+          "sku": "RUNWM",
+          "color": "White",
+          "color_hex": "#F2EEF0",
+          "size": "M",
+          "availability": "on_sale",
+          "image": "/images/products/run-white.webp"
+        },
+        {
+          "sku": "RUNBS",
+          "color": "Black",
+          "color_hex": "#141414",
+          "size": "S",
+          "availability": "on_sale",
+          "image": "/images/products/run-black.webp"
+        },
+        {
+          "sku": "RUNBM",
+          "color": "Black",
+          "color_hex": "#141414",
+          "size": "M",
+          "availability": "on_sale",
+          "image": "/images/products/run-black.webp"
+        },
+        {
+          "sku": "RUNRS",
+          "color": "Red",
+          "color_hex": "#B5093B",
+          "size": "S",
+          "availability": "on_sale",
+          "image": "/images/products/run-red.webp"
+        },
+        {
+          "sku": "RUNRM",
+          "color": "Red",
+          "color_hex": "#B5093B",
+          "size": "M",
+          "availability": "on_sale",
+          "image": "/images/products/run-red.webp"
+        },
+        {
+          "sku": "RUNGS",
+          "color": "Neon Green",
+          "color_hex": "#CAEB12",
+          "size": "S",
+          "availability": "on_sale",
+          "image": "/images/products/run-neongreen.webp"
+        },
+        {
+          "sku": "RUNGM",
+          "color": "Neon Green",
+          "color_hex": "#CAEB12",
+          "size": "M",
+          "availability": "on_sale",
+          "image": "/images/products/run-neongreen.webp"
+        },
+        {
+          "sku": "RUNPS",
+          "color": "Pink",
+          "color_hex": "#EA1869",
+          "size": "S",
+          "availability": "on_sale",
+          "image": "/images/products/run-pink.webp"
+        },
+        {
+          "sku": "RUNPM",
+          "color": "Pink",
+          "color_hex": "#EA1869",
+          "size": "M",
+          "availability": "on_sale",
+          "image": "/images/products/run-pink.webp"
+        },
+        {
+          "sku": "RUNMS",
+          "color": "Mint",
+          "color_hex": "#208488",
+          "size": "S",
+          "availability": "on_sale",
+          "image": "/images/products/run-mint.webp"
+        },
+        {
+          "sku": "RUNMM",
+          "color": "Mint",
+          "color_hex": "#208488",
+          "size": "M",
+          "availability": "on_sale",
+          "image": "/images/products/run-mint.webp"
+        },
+        {
+          "sku": "RUNUS",
+          "color": "Purple",
+          "color_hex": "#744A9D",
+          "size": "S",
+          "availability": "on_sale",
+          "image": "/images/products/run-purple.webp"
+        },
+        {
+          "sku": "RUNUM",
+          "color": "Purple",
+          "color_hex": "#744A9D",
+          "size": "M",
+          "availability": "on_sale",
+          "image": "/images/products/run-purple.webp"
+        },
+        {
+          "sku": "RUNBGS",
+          "color": "Blue gray",
+          "color_hex": "#055DB1",
+          "size": "S",
+          "availability": "on_sale",
+          "image": "/images/products/run-bluegray.webp"
+        },
+        {
+          "sku": "RUNBGM",
+          "color": "Blue gray",
+          "color_hex": "#055DB1",
+          "size": "M",
+          "availability": "on_sale",
+          "image": "/images/products/run-bluegray.webp"
+        },
+        {
+          "sku": "RUNOS",
+          "color": "Orange",
+          "color_hex": "#E05919",
+          "size": "S",
+          "availability": "on_sale",
+          "image": "/images/products/run-orange.webp"
+        },
+        {
+          "sku": "RUNOM",
+          "color": "Orange",
+          "color_hex": "#E05919",
+          "size": "M",
+          "availability": "on_sale",
+          "image": "/images/products/run-orange.webp"
+        }
+      ]
+    },
+    {
+      "slug": "angry-grip",
+      "name": "ANGRY GRIP",
+      "subtitle": "ถุงเท้ากันลื่น พิลาทิส · โยคะ · บาร์เร่",
+      "category": "pilates",
+      "published": true,
+      "price": 390,
+      "unit": "คู่",
+      "material": "100% Nylon + ปุ่มซิลิโคนกันลื่น",
+      "sizes": [
+        {
+          "code": "FREE",
+          "label": "Free Size",
+          "foot_cm": "24–30"
+        }
+      ],
+      "size_note": "Free Size · รองรับความยาวเท้า 24–30 ซม. (วัดจากส้นเท้าถึงปลายนิ้วที่ยาวที่สุด)",
+      "size_chart": null,
+      "features": [
+        "ปุ่มซิลิโคนกันลื่นเต็มฝ่าเท้า หนึบติดพื้น",
+        "ซัพพอร์ตข้อเท้าและอุ้งเท้า",
+        "เหมาะกับพิลาทิส โยคะ บัลเลต์ / Barre และยิม"
+      ],
+      "variants": [
+        {
+          "sku": "AGOMR",
+          "color": "Black · ONE MORE REP",
+          "color_hex": "#141414",
+          "size": "FREE",
+          "availability": "preorder",
+          "image": "/images/products/grip-black.webp",
+          "note": "ใน MyOrder ชื่อรายการเขียนว่า GRIP BC (BLACK) แต่สีดำคือรุ่น OMR — รหัส AGOMR ถูกแล้ว"
+        },
+        {
+          "sku": "AGBC",
+          "color": "Purple · BURNING CORE",
+          "color_hex": "#7A4FB0",
+          "size": "FREE",
+          "availability": "on_sale",
+          "image": "/images/products/grip-purple.webp"
+        },
+        {
+          "sku": "AGTTT",
+          "color": "Blue · TUCK THAT TAILBONE",
+          "color_hex": "#1F6FD1",
+          "size": "FREE",
+          "availability": "on_sale",
+          "image": "/images/products/grip-blue.webp"
+        }
+      ]
+    },
+    {
+      "slug": "angry-og",
+      "name": "ANGRY OG",
+      "subtitle": "ถุงเท้าข้อยาว ผ้าริบ โลโก้ปัก 7 สี",
+      "category": "daily",
+      "published": true,
+      "price": 340,
+      "unit": "คู่",
+      "material": "100% Cotton ผ้าริบ · โลโก้ปัก",
+      "sizes": [
+        {
+          "code": "FREE",
+          "label": "Free Size",
+          "foot_cm": "24–30"
+        }
+      ],
+      "size_note": "Free Size · รองรับความยาวเท้า 24–30 ซม. (วัดจากส้นเท้าถึงปลายนิ้วที่ยาวที่สุด)",
+      "size_chart": null,
+      "features": [
+        "ทรงข้อยาว เก็บขาเนียน ใส่กับผ้าใบ บูท หรือรองเท้าแตะ",
+        "กระชับแต่ไม่บีบขา ขอบบนแน่น ไม่ไหลลง",
+        "โลโก้ปัก Angry Muscles คมชัด ไม่ลอก"
+      ],
+      "variants": [
+        {
+          "sku": "OGNW",
+          "color": "White",
+          "color_hex": "#EDEEF3",
+          "size": "FREE",
+          "availability": "on_sale",
+          "image": "/images/products/og-white.webp"
+        },
+        {
+          "sku": "OGNB",
+          "color": "Black",
+          "color_hex": "#141414",
+          "size": "FREE",
+          "availability": "on_sale",
+          "image": "/images/products/og-black.webp"
+        },
+        {
+          "sku": "OGNR",
+          "color": "Red",
+          "color_hex": "#A1000C",
+          "size": "FREE",
+          "availability": "on_sale",
+          "image": "/images/products/og-red.webp"
+        },
+        {
+          "sku": "OGNPP",
+          "color": "Purple",
+          "color_hex": "#BFA1DE",
+          "size": "FREE",
+          "availability": "on_sale",
+          "image": "/images/products/og-purple.webp"
+        },
+        {
+          "sku": "OGNP",
+          "color": "Pink",
+          "color_hex": "#F8AED1",
+          "size": "FREE",
+          "availability": "on_sale",
+          "image": "/images/products/og-pink.webp"
+        },
+        {
+          "sku": "OGNY",
+          "color": "Yellow",
+          "color_hex": "#F8CF03",
+          "size": "FREE",
+          "availability": "on_sale",
+          "image": "/images/products/og-yellow.webp"
+        },
+        {
+          "sku": "OGNG",
+          "color": "Green",
+          "color_hex": "#383C14",
+          "size": "FREE",
+          "availability": "on_sale",
+          "image": "/images/products/og-green.webp"
+        }
+      ]
+    },
+    {
+      "slug": "angry-max-rep",
+      "name": "ANGRY MAX REP",
+      "subtitle": "ถุงเท้าวิ่งข้อสั้น · สี = สีแถบที่ขอบข้อ",
+      "category": "run",
+      "published": true,
+      "price": 290,
+      "unit": "คู่",
+      "material": "100% Polyester",
+      "sizes": [
+        {
+          "code": "FREE",
+          "label": "Free Size",
+          "foot_cm": "24–30"
+        }
+      ],
+      "size_note": "Free Size · รองรับความยาวเท้า 24–30 ซม. (วัดจากส้นเท้าถึงปลายนิ้วที่ยาวที่สุด)",
+      "size_chart": null,
+      "features": [
+        "ทรงข้อสั้น เข้ากับรองเท้าทุกคู่",
+        "ซัพพอร์ตข้อเท้าและอุ้งเท้า ช่วยทรงตัวตอนเทรนหนัก",
+        "พื้นหนานุ่ม ระบายอากาศดี"
+      ],
+      "variants": [
+        {
+          "sku": "MRPK",
+          "color": "Black",
+          "color_hex": "#141414",
+          "size": "FREE",
+          "availability": "preorder",
+          "image": "/images/products/maxrep-black.webp"
+        },
+        {
+          "sku": "MRPR",
+          "color": "Red",
+          "color_hex": "#D12129",
+          "size": "FREE",
+          "availability": "on_sale",
+          "image": "/images/products/maxrep-red.webp"
+        },
+        {
+          "sku": "MRPB",
+          "color": "Blue",
+          "color_hex": "#1F6FD1",
+          "size": "FREE",
+          "availability": "on_sale",
+          "image": "/images/products/maxrep-blue.webp"
+        }
+      ]
+    },
+    {
+      "slug": "angry-run-pride",
+      "name": "ANGRY RUN PRIDE",
+      "subtitle": "RUN ลายพิเศษ · MOVE PROUD.",
+      "category": "run",
+      "published": true,
+      "price": 380,
+      "unit": "คู่",
+      "material": "80% Nylon · 15% Elastic · 5% Spandex",
+      "sizes": [
+        {
+          "code": "S",
+          "label": "22–26 cm",
+          "foot_cm": "22–26",
+          "eu": "35–41"
+        },
+        {
+          "code": "M",
+          "label": "26–30 cm",
+          "foot_cm": "26–30",
+          "eu": "41–46"
+        }
+      ],
+      "size_note": "22–26 cm = เท้า 22–26 ซม. (EU 35–41) · 26–30 cm = เท้า 26–30 ซม. (EU 41–46) · เท้า 26 ซม. / EU 41 ใส่ได้ทั้งสองไซส์: ชอบกระชับเลือก 22–26 cm ชอบสบายเลือก 26–30 cm · ความกว้างเท่ากันทั้ง 2 ไซส์",
+      "size_chart": "/images/size-charts/run.webp",
+      "features": [
+        "พื้นหนานุ่มเต็มฝ่าเท้า (Full-Sole Cushion) ลดแรงกระแทก",
+        "เสริมความแข็งแรงที่ปลายเท้าและส้นเท้า ทรงตามรูปเท้า",
+        "ตาข่ายระบายอากาศ ลดความอับชื้น",
+        "กระชับ ไม่ร่น ไม่ย้วย ไม่เลื่อนระหว่างเคลื่อนไหว",
+        "Unisex · วิ่ง เทรล ยิม เวท HYROX"
+      ],
+      "image_bg": "#ECE7E3",
+      "variants": [
+        {
+          "sku": "RUNPrideS",
+          "color": "Pride",
+          "color_hex": "#141414",
+          "size": "S",
+          "availability": "on_sale",
+          "image": "/images/products/run-pride.webp"
+        },
+        {
+          "sku": "RUNPrideM",
+          "color": "Pride",
+          "color_hex": "#141414",
+          "size": "M",
+          "availability": "on_sale",
+          "image": "/images/products/run-pride.webp"
+        }
+      ]
+    },
+    {
+      "slug": "oversized-tee",
+      "name": "OVERSIZED TEE",
+      "subtitle": "เสื้อทรงโอเวอร์ไซส์ Super Soft Cotton",
+      "category": "apparel",
+      "published": true,
+      "price": 890,
+      "unit": "ตัว",
+      "material": "100% Super Soft Cotton 180–190 GSM",
+      "sizes": [
+        {
+          "code": "S",
+          "label": "S"
+        },
+        {
+          "code": "M",
+          "label": "M"
+        },
+        {
+          "code": "L",
+          "label": "L"
+        },
+        {
+          "code": "XL",
+          "label": "XL"
+        }
+      ],
+      "size_note": "รอบอก / ยาว (นิ้ว) · S 40 / 26.5 · M 44 / 27.5 · L 48 / 29.5 · XL 52 / 31.5",
+      "size_chart": "/images/size-charts/tee.webp",
+      "features": [
+        "ผ้าทอแน่น สัมผัสเรียบ ซักหลายครั้งไม่เสียทรง",
+        "สกรีนโลโก้ ANGRY MUSCLES ที่หน้าอก (เสื้อขาวโลโก้แดง เสื้อดำโลโก้ขาว)"
+      ],
+      "variants": [
+        {
+          "sku": "OSTBS",
+          "color": "Black",
+          "color_hex": "#141414",
+          "size": "S",
+          "availability": "on_sale",
+          "image": "/images/products/oversized-black.webp"
+        },
+        {
+          "sku": "OSTBM",
+          "color": "Black",
+          "color_hex": "#141414",
+          "size": "M",
+          "availability": "preorder",
+          "image": "/images/products/oversized-black.webp",
+          "note": "ใน MyOrder ใช้รหัส OSTWM ซึ่งดูเหมือนรหัสสีขาว — ตรวจก่อนเชื่อมสต็อก"
+        },
+        {
+          "sku": "OSTBL",
+          "color": "Black",
+          "color_hex": "#141414",
+          "size": "L",
+          "availability": "on_sale",
+          "image": "/images/products/oversized-black.webp"
+        },
+        {
+          "sku": "OSTBXL",
+          "color": "Black",
+          "color_hex": "#141414",
+          "size": "XL",
+          "availability": "on_sale",
+          "image": "/images/products/oversized-black.webp"
+        },
+        {
+          "sku": "OSTWS",
+          "color": "White",
+          "color_hex": "#FFFFFF",
+          "size": "S",
+          "availability": "on_sale",
+          "image": "/images/products/oversized-white.webp"
+        },
+        {
+          "sku": "OSTWM",
+          "color": "White",
+          "color_hex": "#FFFFFF",
+          "size": "M",
+          "availability": "on_sale",
+          "image": "/images/products/oversized-white.webp"
+        },
+        {
+          "sku": "OSTWL",
+          "color": "White",
+          "color_hex": "#FFFFFF",
+          "size": "L",
+          "availability": "on_sale",
+          "image": "/images/products/oversized-white.webp"
+        },
+        {
+          "sku": "OSTWXL",
+          "color": "White",
+          "color_hex": "#FFFFFF",
+          "size": "XL",
+          "availability": "on_sale",
+          "image": "/images/products/oversized-white.webp"
+        }
+      ]
+    },
+    {
+      "slug": "baby-tee",
+      "name": "BABY TEE",
+      "subtitle": "เสื้อครอปเข้ารูป Super Soft Cotton",
+      "category": "apparel",
+      "published": true,
+      "price": 590,
+      "unit": "ตัว",
+      "material": "100% Super Soft Cotton 180–190 GSM",
+      "sizes": [
+        {
+          "code": "S",
+          "label": "S"
+        },
+        {
+          "code": "M",
+          "label": "M"
+        },
+        {
+          "code": "L",
+          "label": "L"
+        },
+        {
+          "code": "XL",
+          "label": "XL"
+        }
+      ],
+      "size_note": "รอบอก / ยาว (นิ้ว) · S 34 / 21 · M 36 / 22 · L 38 / 23 · XL 40 / 24",
+      "size_chart": "/images/size-charts/tee.webp",
+      "features": [
+        "ทรงเข้ารูป ตัวสั้น",
+        "สกรีนโลโก้ ANGRY MUSCLES ที่หน้าอก"
+      ],
+      "variants": [
+        {
+          "sku": "BBTBS",
+          "color": "Black",
+          "color_hex": "#141414",
+          "size": "S",
+          "availability": "preorder",
+          "image": "/images/products/baby-tee-black.webp"
+        },
+        {
+          "sku": "BBTBM",
+          "color": "Black",
+          "color_hex": "#141414",
+          "size": "M",
+          "availability": "preorder",
+          "image": "/images/products/baby-tee-black.webp"
+        },
+        {
+          "sku": "BBTBL",
+          "color": "Black",
+          "color_hex": "#141414",
+          "size": "L",
+          "availability": "preorder",
+          "image": "/images/products/baby-tee-black.webp"
+        },
+        {
+          "sku": "BBTBXL",
+          "color": "Black",
+          "color_hex": "#141414",
+          "size": "XL",
+          "availability": "preorder",
+          "image": "/images/products/baby-tee-black.webp",
+          "note": "ไม่มีรายการ BBT B/XL ใน MyOrder"
+        },
+        {
+          "sku": "BBTWS",
+          "color": "White",
+          "color_hex": "#FFFFFF",
+          "size": "S",
+          "availability": "preorder",
+          "image": "/images/products/baby-tee-white.webp"
+        },
+        {
+          "sku": "BBTWM",
+          "color": "White",
+          "color_hex": "#FFFFFF",
+          "size": "M",
+          "availability": "preorder",
+          "image": "/images/products/baby-tee-white.webp"
+        },
+        {
+          "sku": "BBTWL",
+          "color": "White",
+          "color_hex": "#FFFFFF",
+          "size": "L",
+          "availability": "preorder",
+          "image": "/images/products/baby-tee-white.webp"
+        },
+        {
+          "sku": "BBTWXL",
+          "color": "White",
+          "color_hex": "#FFFFFF",
+          "size": "XL",
+          "availability": "preorder",
+          "image": "/images/products/baby-tee-white.webp"
+        }
+      ]
+    },
+    {
+      "slug": "angry-bandana",
+      "name": "THE ANGRY BANDANA",
+      "subtitle": "ผ้าโพกหัว · ผ้าพันคอ 55×55 ซม.",
+      "category": "apparel",
+      "published": true,
+      "price": 590,
+      "unit": "ผืน",
+      "material": "100% Spun Polyester · 55 × 55 cm",
+      "sizes": [
+        {
+          "code": "55x55",
+          "label": "55×55 cm"
+        }
+      ],
+      "size_note": "ขนาด 55×55 ซม.",
+      "size_chart": null,
+      "features": [
+        "นุ่ม แห้งเร็ว น้ำหนักเบา สีสดติดทน",
+        "คาดผม ผูกคอ ปิดหน้ากันแดดตอนปั่น ผูกกระเป๋า",
+        "FOR ANGRY MUSCLES AND HAPPY HEARTS."
+      ],
+      "variants": [
+        {
+          "sku": "AMHB",
+          "color": "HAPPY HEARTS (ดำ)",
+          "color_hex": "#141414",
+          "size": "55x55",
+          "availability": "on_sale",
+          "image": "/images/products/bandana-happy-hearts-black.webp"
+        },
+        {
+          "sku": "AMMP",
+          "color": "ANGRY MUSCLES (ชมพู)",
+          "color_hex": "#F8B0CD",
+          "size": "55x55",
+          "availability": "on_sale",
+          "image": "/images/products/bandana-angry-muscles-pink.webp"
+        },
+        {
+          "sku": "AMHP",
+          "color": "HAPPY HEARTS (ชมพู)",
+          "color_hex": "#F8B0CD",
+          "size": "55x55",
+          "availability": "on_sale",
+          "image": null,
+          "note": "รอรูปสินค้า"
+        },
+        {
+          "sku": "AMMB",
+          "color": "ANGRY MUSCLES (ดำ)",
+          "color_hex": "#141414",
+          "size": "55x55",
+          "availability": "on_sale",
+          "image": null,
+          "note": "รอรูปสินค้า"
+        }
+      ]
+    }
+  ]
+}
