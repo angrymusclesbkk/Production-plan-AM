@@ -2,7 +2,11 @@ import raw from "../../data/products.json";
 import type { Category } from "./types";
 
 /** URL เต็มของเว็บ — ห้าม hardcode ที่อื่น (CLAUDE.md) */
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(/\/$/, "");
+export const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  // ลืมตั้งบน Vercel → ใช้โดเมนหลักของโปรเจกต์แทน (กัน canonical/sitemap ชี้ localhost)
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "http://localhost:3000")
+).replace(/\/$/, "");
 export const SITE_NAME = "Angry Muscles";
 export const TAGLINE = "FOR ANGRY MUSCLES AND HAPPY HEARTS.";
 

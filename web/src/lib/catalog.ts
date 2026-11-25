@@ -11,7 +11,8 @@ export const CATALOG_TAG = "catalog";
  */
 export async function getCatalog(): Promise<Product[]> {
   "use cache";
-  cacheLife("days");
+  // ตาข่ายรองรับ: ถ้าแอดมินกดหลายครั้งติดกันจนการล้างแคชชนกัน หน้าร้านจะถูกต้องเองภายใน ~1 นาที
+  cacheLife({ stale: 60, revalidate: 60, expire: 86400 });
   cacheTag(CATALOG_TAG);
   const store = await getStore();
   return (await store.getProducts()).filter((p) => p.published);
