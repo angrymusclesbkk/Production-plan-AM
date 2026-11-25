@@ -14,14 +14,13 @@ export const onVercel = Boolean(process.env.VERCEL);
 
 /**
  * เลือกที่เก็บข้อมูล: Supabase ถ้าตั้ง env ครบ
- * ไม่งั้นใช้ไฟล์ในเครื่อง — แต่บน Vercel ห้าม (ไฟล์หายทุกครั้ง ออเดอร์จะหาย)
+ * ไม่งั้นใช้ไฟล์ในเครื่อง — แต่บน Vercel ใช้โหมดดูได้อย่างเดียวแทน (ไฟล์หายทุกครั้ง ออเดอร์จะหาย)
  */
 export async function getStore(): Promise<Store> {
   if (supabaseConfigured()) return (await import("./supabase")).supabaseStore;
   if (onVercel) {
-    throw new Error(
-      "ยังไม่ได้ตั้งค่า Supabase บน Vercel: ต้องมี NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY, SUPABASE_SERVICE_ROLE_KEY",
-    );
+    // ยังไม่ได้ต่อ Supabase: เปิดหน้าร้านให้ดูได้ แต่ห้ามเขียนข้อมูล (ไฟล์บน Vercel ไม่ถาวร ออเดอร์จะหาย)
+    return (await import("./readonly")).readonlyStore;
   }
   return (await import("./local")).localStore;
 }
