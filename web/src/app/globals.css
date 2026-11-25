@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+@theme {
+  --color-red: #d12129;
+  --color-red-deep: #b3121f;
+  --color-ink: #17120f;
+  --color-cream: #fffbf7;
+  --color-pink: #ffd6e2;
+  --color-line: #06c755;
+  --color-cat-run: #ffe3eb;
+  --color-cat-pilates: #ece6ff;
+  --color-cat-daily: #fff1d6;
+  --color-cat-apparel: #e3f5ec;
+  --color-muted: #5c544f;
+  --color-ok: #1e7a3c;
+  --color-warn: #8a5a00;
+
+  --font-display: var(--font-kanit), system-ui, sans-serif;
+  --font-sans: var(--font-anuphan), system-ui, sans-serif;
+
+  --radius-card: 22px;
+  --shadow-pop: 6px 6px 0 #17120f;
+  --shadow-pop-sm: 3px 3px 0 #17120f;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-display);
+}
+
+@layer components {
+  .card {
+    border: 2.5px solid var(--color-ink);
+    border-radius: var(--radius-card);
+    background: white;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    padding: 0.6rem 1.4rem;
+    border: 2.5px solid var(--color-ink);
+    border-radius: 9999px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.2;
+    transition: transform 120ms ease, box-shadow 120ms ease;
+  }
+  .btn:hover:not(:disabled) {
+    transform: translate(-2px, -2px);
+    box-shadow: var(--shadow-pop-sm);
+  }
+  .btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  .btn-ink {
+    background: var(--color-ink);
+    color: white;
+  }
+  .btn-red {
+    background: var(--color-red);
+    color: white;
+  }
+  .btn-white {
+    background: white;
+    color: var(--color-ink);
+  }
+  /* ปุ่ม LINE: ตัวหนังสือสีหมึก เพราะขาวบนเขียว contrast ไม่ผ่าน */
+  .btn-line {
+    background: var(--color-line);
+    color: var(--color-ink);
+  }
+  .eyebrow {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: var(--color-red-deep);
+  }
+  .field {
+    width: 100%;
+    min-height: 48px;
+    padding: 0.6rem 0.9rem;
+    border: 2.5px solid var(--color-ink);
+    border-radius: 14px;
+    background: white;
+    font-size: 1rem;
+  }
+  .field:focus-visible {
+    outline: 3px solid var(--color-red);
+    outline-offset: 2px;
+  }
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-red);
+  outline-offset: 2px;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white;
+  }
+}
