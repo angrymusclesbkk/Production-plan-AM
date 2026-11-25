@@ -97,6 +97,13 @@ $$;
 create trigger orders_touch_updated_at before update on public.orders
   for each row execute function public.touch_updated_at();
 
+-- สิทธิ์เข้าถึงตาราง (ใส่เองแบบระบุชัด — ไม่พึ่งตัวเลือก "Grant API access to new tables automatically")
+-- server ใช้ service_role · ลูกค้า (anon) อ่านได้แค่ products/variants และถูกจำกัดต่อด้วย RLS ด้านล่าง
+grant usage on schema public to anon, authenticated, service_role;
+grant select on public.products, public.variants to anon, authenticated;
+grant select, insert, update, delete on all tables in schema public to service_role;
+grant usage, select on all sequences in schema public to service_role;
+
 -- Row Level Security
 -- ลูกค้า (anon key) อ่านได้แค่สินค้าที่เปิดขาย · ออเดอร์/log ไม่มี policy = เข้าถึงได้เฉพาะ server (service role)
 alter table public.products          enable row level security;

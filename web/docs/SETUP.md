@@ -10,7 +10,8 @@
 ## 1. Supabase — ฐานข้อมูล + ล็อกอินแอดมิน
 
 1. สมัครที่ supabase.com → **New project**
-   - Region: **Southeast Asia (Singapore)** (ใกล้ลูกค้าไทยที่สุด)
+   - Region: กด **Need a specific region?** แล้วเลือก **Southeast Asia (Singapore)** (ใกล้ลูกค้าไทยที่สุด และตรงกับ Vercel ที่ตั้งไว้ `sin1`)
+   - Data access: ติ๊ก **Enable Data API** (ต้องมี) · ช่อง Grant API access อัตโนมัติ ไม่ต้องติ๊ก (ไฟล์ SQL ให้สิทธิ์เองแบบระบุชัด) · ช่อง Enable RLS อัตโนมัติ ติ๊กหรือไม่ก็ได้
    - ตั้ง Database password แล้วจดเก็บไว้
 2. เมนูซ้าย **SQL Editor** → **New query**
    - เปิดไฟล์ `supabase/migrations/0001_init.sql` คัดลอกทั้งหมดไปวาง → กด **Run**
