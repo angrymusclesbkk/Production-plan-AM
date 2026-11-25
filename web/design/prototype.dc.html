@@ -1,0 +1,563 @@
+<!--
+  ต้นแบบหน้าร้าน Angry Muscles (ทำใน Claude Design canvas, 20 พ.ย. 2026)
+  ไฟล์นี้ใช้เป็น "ภาพอ้างอิงหน้าตาและลำดับการใช้งาน" เท่านั้น ไม่ใช่โค้ดที่นำไปใช้ตรง ๆ
+  - เขียนในรูปแบบ .dc.html ของ canvas: {{hole}}, <sc-for>, <sc-if>, class Component extends DCLogic
+  - ให้ดู: สี ฟอนต์ ขอบ ลำดับส่วนต่าง ๆ ข้อความ และ flow ตะกร้า / พรีออเดอร์ทาง LINE
+  - รูปสินค้าในโค้ด JS ยังอ้าง /_blob/<id> ของ canvas → ใช้ path ใน data/products.json แทน
+-->
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<title>Angry Muscles — ร้านค้าออนไลน์</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600&amp;family=Kanit:ital,wght@0,500;0,600;0,700;0,800;1,800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFBF7;color:#17120F;font-family:Anuphan,sans-serif}
+a{color:#B3121F}a:hover{color:#17120F}
+button{font:inherit}
+.am-card{transition:transform .15s ease, box-shadow .15s ease}
+.am-card:hover{transform:translateY(-4px);box-shadow:6px 6px 0 #17120F}
+.am-btn:hover{filter:brightness(0.95)}
+:focus-visible{outline:3px solid #2E6BE6;outline-offset:3px}
+details>summary{list-style:none;cursor:pointer}
+details>summary::-webkit-details-marker{display:none}
+details[open] .am-plus{transform:rotate(45deg)}
+</style>
+</helmet>
+<div style="width: 100%; min-height: 100vh; background: #FFFBF7; color: #17120F; font-family: Anuphan, sans-serif; font-size: 16px; line-height: 1.6">
+
+
+<header style="position: sticky; top: 0; z-index: 20; background: #FFFBF7; border-bottom: 2.5px solid #17120F">
+<div style="width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 24px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-top: 12px; padding-bottom: 12px">
+<a href="#top" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: #17120F"><img src="/images/brand/logo-red.webp" alt="Angry Muscles" style="height: 44px; width: auto; display: block"></a>
+<nav aria-label="เมนูหลัก" style="display: flex; gap: 22px; flex-wrap: wrap; font-family: Kanit, sans-serif; font-weight: 500; font-size: 16px">
+<a href="#shop" style="color: #17120F; text-decoration: none">สินค้า</a>
+<a href="#size" style="color: #17120F; text-decoration: none">หาไซส์</a>
+<a href="#team" style="color: #17120F; text-decoration: none">สั่งให้ทีม</a>
+<a href="#faq" style="color: #17120F; text-decoration: none">คำถาม</a>
+</nav>
+<button class="am-btn" onClick="{{openCart}}" aria-label="เปิดตะกร้าสินค้า" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 24px; border-radius: 999px; border: 2.5px solid #17120F; background: #17120F; color: #FFFFFF; font-family: Kanit, sans-serif; font-weight: 600; font-size: 17px; text-decoration: none; cursor: pointer; position: relative; padding: 0 18px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l1 13H5z"></path><path d="M9 7a3 3 0 0 1 6 0"></path></svg><span>ตะกร้า</span>
+<sc-if value="{{hasItems}}"><span style="min-width: 24px; height: 24px; border-radius: 999px; background: #D12129; color: #FFFFFF; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; padding: 0 6px; box-sizing: border-box">{{cartCount}}</span></sc-if>
+</button>
+</div>
+</header>
+
+<section id="top" style="background: #FFD6E2; border-bottom: 2.5px solid #17120F; overflow: hidden">
+<div style="width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; gap: 32px; padding-top: 56px; padding-bottom: 56px">
+<div style="flex: 1 1 440px; display: flex; flex-direction: column; gap: 20px; min-width: 0">
+<p style="margin: 0; font-family: Kanit, sans-serif; font-weight: 800; font-style: italic; font-size: 16px; letter-spacing: 0.06em; color: #17120F">FOR ANGRY MUSCLES AND HAPPY HEARTS.</p>
+<h1 style="margin: 0; font-family: Kanit, sans-serif; font-weight: 800; font-size: clamp(44px, 6.4vw, 84px); line-height: 1.02; color: #17120F">ถุงเท้าสายเทรน<br><span style="color: #B3121F">กวนแต่ซัพพอร์ตจริง</span></h1>
+<p style="margin: 0; font-size: 19px; max-width: 520px">พื้นหนานุ่มเต็มฝ่าเท้า กระชับ ไม่ร่น ไม่เลื่อน ใส่วิ่ง ยกเวท HYROX หรือพิลาทิสก็ได้</p>
+<div style="display: flex; gap: 12px; flex-wrap: wrap">
+<a class="am-btn" href="#shop" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 24px; border-radius: 999px; border: 2.5px solid #17120F; background: #17120F; color: #FFFFFF; font-family: Kanit, sans-serif; font-weight: 600; font-size: 17px; text-decoration: none; cursor: pointer">ช้อปเลย</a>
+<a class="am-btn" href="#size" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 24px; border-radius: 999px; border: 2.5px solid #17120F; background: #FFFFFF; color: #17120F; font-family: Kanit, sans-serif; font-weight: 600; font-size: 17px; text-decoration: none; cursor: pointer">หาไซส์ของคุณ</a>
+</div>
+</div>
+<div style="flex: 1 1 380px; display: flex; justify-content: center; min-width: 0"><img src="/images/brand/hero-run-flatlay.webp" alt="ถุงเท้า Angry RUN หลายสีวางเรียงกัน" style="width: 100%; max-width: 540px; aspect-ratio: 1 / 1; object-fit: cover; border: 2.5px solid #17120F; border-radius: 28px; box-shadow: 10px 10px 0 #17120F; display: block"></div>
+</div>
+</section>
+
+<section id="shop" style="padding: 72px 0 48px">
+<div style="width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 24px; box-sizing: border-box; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 6px"><p style="margin: 0; font-family: Kanit, sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; color: #B3121F">Shop</p><h2 style="margin: 0; font-family: Kanit, sans-serif; font-weight: 800; font-size: clamp(32px, 4.4vw, 52px); line-height: 1.1; color: #17120F">เลือกตามกีฬาที่เล่น</h2></div>
+<p style="margin: 0; max-width: 380px; color: #5A514C">กดที่สินค้าเพื่อเลือกสีและไซส์ สีหรือไซส์ไหนหมด กดพรีออเดอร์ทาง LINE ได้เลย</p>
+</div>
+<div role="group" aria-label="หมวดสินค้า" style="display: flex; gap: 10px; flex-wrap: wrap">
+<sc-for list="{{cats}}" as="c" hint-placeholder-count="5">
+<button onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="min-height: 44px; padding: 0 20px; border-radius: 999px; border: 2.5px solid #17120F; background: {{c.bg}}; color: {{c.fg}}; font-family: Kanit, sans-serif; font-weight: 600; font-size: 16px; cursor: pointer">{{c.label}}</button>
+</sc-for>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 24px">
+<sc-for list="{{products}}" as="p" hint-placeholder-count="9">
+<button class="am-card" onClick="{{p.open}}" aria-label="ดู {{p.name}}" style="display: flex; flex-direction: column; text-align: left; padding: 0; border: 2.5px solid #17120F; border-radius: 22px; background: #FFFFFF; color: #17120F; overflow: hidden; cursor: pointer">
+<span style="position: relative; display: flex; align-items: center; justify-content: center; height: 270px; background: {{p.cardBg}}; border-bottom: 2.5px solid #17120F">
+<sc-if value="{{p.v.hasImg}}" hint-placeholder-val="{{ true }}"><img src="{{p.v.img}}" alt="{{p.v.alt}}" loading="lazy" style="width: 100%; height: 100%; object-fit: contain; padding: {{p.v.pad}}px; box-sizing: border-box"></sc-if>
+<sc-if value="{{p.allOut}}"><span style="position: absolute; top: 12px; left: 12px; background: #D12129; color: #FFFFFF; font-size: 13px; font-weight: 600; padding: 4px 12px; border-radius: 999px; border: 2px solid #17120F">หมด · พรีออเดอร์ทาง LINE</span></sc-if>
+<sc-if value="{{p.partOut}}"><span style="position: absolute; top: 12px; left: 12px; background: #FFFFFF; color: #17120F; font-size: 13px; font-weight: 600; padding: 4px 12px; border-radius: 999px; border: 2px solid #17120F">บางสี/ไซส์หมด</span></sc-if>
+</span>
+<span style="display: flex; flex-direction: column; gap: 6px; padding: 16px 18px 20px">
+<span style="font-family: Kanit, sans-serif; font-weight: 700; font-size: 21px; line-height: 1.2">{{p.name}}</span>
+<span style="font-size: 14px; color: #5A514C; line-height: 1.45">{{p.sub}}</span>
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 8px">
+<span style="font-family: Kanit, sans-serif; font-weight: 700; font-size: 22px">{{p.priceText}}</span>
+<span style="display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; max-width: 150px">
+<sc-for list="{{p.dots}}" as="d" hint-placeholder-count="5"><span style="width: 14px; height: 14px; border-radius: 999px; background: {{d.hex}}; border: 1.5px solid #17120F; box-sizing: border-box"></span></sc-for>
+</span>
+</span>
+</span>
+</button>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section style="padding: 0 0 72px">
+<div style="width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 24px; box-sizing: border-box">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; background: #E9FBEF; border: 2.5px solid #17120F; border-radius: 22px; padding: 28px 32px">
+<div style="display: flex; flex-direction: column; gap: 6px; flex: 1 1 420px">
+<p style="margin: 0; font-family: Kanit, sans-serif; font-weight: 800; font-size: 26px; line-height: 1.2">สีที่ชอบหมด? ไม่ต้องรอเงียบ ๆ</p>
+<p style="margin: 0; color: #3D3632">กดปุ่มพรีออเดอร์ทาง LINE ในหน้าสินค้า แล้วแจ้งรุ่น สี ไซส์ และจำนวนในแชท ทีมงานจะตอบเรื่องรอบผลิตและวันส่ง</p>
+</div>
+<a class="am-btn" href="{{lineGeneral}}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; padding: 0 24px; border-radius: 999px; border: 2.5px solid #17120F; background: #06C755; color: #17120F; font-family: Kanit, sans-serif; font-weight: 700; font-size: 17px; text-decoration: none; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"></path></svg><span>ทัก LINE</span></a>
+</div>
+</div>
+</section>
+
+<section id="size" style="background: #17120F; color: #FFFFFF; padding: 72px 0">
+<div style="width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start">
+<div style="flex: 1 1 400px; display: flex; flex-direction: column; gap: 14px; min-width: 0">
+<p style="margin: 0; font-family: Kanit, sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.12em; color: #FF9EC0">SIZE FINDER</p>
+<h2 style="margin: 0; font-family: Kanit, sans-serif; font-weight: 800; font-size: clamp(32px, 4.4vw, 52px); line-height: 1.1">หาไซส์ของคุณใน 5 วินาที</h2>
+<p style="margin: 0; color: #E9E2DD; max-width: 460px">ใส่ความยาวเท้าหรือเบอร์รองเท้า แล้วเราบอกว่าควรเลือกไซส์ไหน วัดความยาวเท้าจากส้นเท้าถึงปลายนิ้วที่ยาวที่สุด</p>
+<div role="group" aria-label="วิธีวัด" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px">
+<button onClick="{{modeCm}}" aria-pressed="{{modeCmOn}}" style="min-height: 44px; padding: 0 20px; border-radius: 999px; border: 2.5px solid #FFFFFF; background: {{modeCmBg}}; color: {{modeCmFg}}; font-family: Kanit, sans-serif; font-weight: 600; font-size: 16px; cursor: pointer">ความยาวเท้า (ซม.)</button>
+<button onClick="{{modeEu}}" aria-pressed="{{modeEuOn}}" style="min-height: 44px; padding: 0 20px; border-radius: 999px; border: 2.5px solid #FFFFFF; background: {{modeEuBg}}; color: {{modeEuFg}}; font-family: Kanit, sans-serif; font-weight: 600; font-size: 16px; cursor: pointer">เบอร์รองเท้า EU</button>
+</div>
+<label for="am-foot" style="font-weight: 600; margin-top: 6px">{{footLabel}}</label>
+<input id="am-foot" type="number" inputmode="decimal" value="{{footVal}}" onChange="{{onFoot}}" placeholder="{{footPlaceholder}}" style="width: 220px; min-height: 56px; border-radius: 14px; border: 2.5px solid #FFFFFF; background: #FFFBF7; color: #17120F; font-family: Kanit, sans-serif; font-size: 24px; font-weight: 600; padding: 0 16px; box-sizing: border-box">
+</div>
+<div style="flex: 1 1 400px; min-width: 0; background: #FFD6E2; color: #17120F; border: 2.5px solid #FFFFFF; border-radius: 22px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<p style="margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.08em">RUN · PRIDE · XMAS</p>
+<p style="margin: 0; font-family: Kanit, sans-serif; font-weight: 800; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.1">{{fit.title}}</p>
+<p style="margin: 0; color: #3D3632">{{fit.body}}</p>
+<div style="height: 2px; background: #17120F; opacity: 0.15; margin: 6px 0"></div>
+<p style="margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.08em">OG · MAX REP · GRIP</p>
+<p style="margin: 0; color: #3D3632">{{fit.free}}</p>
+<div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px">
+<a class="am-btn" href="#shop" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 24px; border-radius: 999px; border: 2.5px solid #17120F; background: #17120F; color: #FFFFFF; font-family: Kanit, sans-serif; font-weight: 600; font-size: 17px; text-decoration: none; cursor: pointer">ไปเลือกสินค้า</a>
+<a class="am-btn" href="{{lineSize}}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 24px; border-radius: 999px; border: 2.5px solid #17120F; background: #FFFFFF; color: #17120F; font-family: Kanit, sans-serif; font-weight: 600; font-size: 17px; text-decoration: none; cursor: pointer">ยังไม่แน่ใจ ถามทาง LINE</a>
+</div>
+<details style="margin-top: 6px; border-top: 2px solid rgba(23,18,15,0.15); padding-top: 10px"><summary style="min-height: 44px; display: flex; align-items: center; font-weight: 600; text-decoration: underline">ดูตารางไซส์ RUN แบบเต็ม</summary><img src="/images/size-charts/run.webp" alt="ตารางไซส์ Angry RUN Socks" loading="lazy" style="width: 100%; height: auto; margin-top: 10px; border: 2px solid #17120F; border-radius: 14px; display: block"></details>
+</div>
+</div>
+</section>
+
+<section style="padding: 72px 0">
+<div style="width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 24px; box-sizing: border-box; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 6px"><p style="margin: 0; font-family: Kanit, sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; color: #B3121F">Why Angry RUN</p><h2 style="margin: 0; font-family: Kanit, sans-serif; font-weight: 800; font-size: clamp(32px, 4.4vw, 52px); line-height: 1.1; color: #17120F">ทำมาให้เท้าเทรนได้นานกว่าเดิม</h2></div>
+<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: stretch">
+<img src="/images/brand/run-toe-detail.webp" alt="ปลายเท้าถุงเท้า Angry RUN สีขาวและดำ" loading="lazy" style="flex: 1 1 300px; max-width: 420px; width: 100%; min-height: 360px; object-fit: cover; border: 2.5px solid #17120F; border-radius: 22px; display: block">
+<div style="flex: 999 1 460px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px">
+<div style="background: #FFFFFF; border: 2.5px solid #17120F; border-radius: 22px; padding: 24px; display: flex; flex-direction: column; gap: 8px"><p style="margin: 0; font-family: Kanit, sans-serif; font-weight: 700; font-size: 21px">พื้นหนานุ่มเต็มฝ่าเท้า</p><p style="margin: 0; color: #5A514C">Full-Sole Cushion ลดแรงกระแทก เสริมปลายเท้าและส้นเท้า</p></div>
+<div style="background: #FFFFFF; border: 2.5px solid #17120F; border-radius: 22px; padding: 24px; display: flex; flex-direction: column; gap: 8px"><p style="margin: 0; font-family: Kanit, sans-serif; font-weight: 700; font-size: 21px">ตาข่ายระบายอากาศ</p><p style="margin: 0; color: #5A514C">ลดความอับชื้นระหว่างวิ่งยาวหรือเทรนหนัก</p></div>
+<div style="background: #FFFFFF; border: 2.5px solid #17120F; border-radius: 22px; padding: 24px; display: flex; flex-direction: column; gap: 8px"><p style="margin: 0; font-family: Kanit, sans-serif; font-weight: 700; font-size: 21px">ไม่ร่น ไม่ย้วย ไม่เลื่อน</p><p style="margin: 0; color: #5A514C">ทรงตามรูปเท้า กระชับระหว่างเคลื่อนไหว ช่วยให้รองเท้าสวมแน่นขึ้น</p></div>
+<div style="background: #FFFFFF; border: 2.5px solid #17120F; border-radius: 22px; padding: 24px; display: flex; flex-direction: column; gap: 8px"><p style="margin: 0; font-family: Kanit, sans-serif; font-weight: 700; font-size: 21px">ใส่ได้ทุกเพศ</p><p style="margin: 0; color: #5A514C">Unisex 9 สี เลือกตามความยาวเท้า 22–26 หรือ 26–30 ซม.</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="team" style="padding: 0 0 72px">
+<div style="width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 24px; box-sizing: border-box">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 28px; background: #D12129; color: #FFFFFF; border: 2.5px solid #17120F; border-radius: 22px; padding: 40px">
+<div style="flex: 1 1 460px; display: flex; flex-direction: column; gap: 10px; min-width: 0">
+<p style="margin: 0; font-family: Kanit, sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.12em">TEAM ORDER</p>
+<p style="margin: 0; font-family: Kanit, sans-serif; font-weight: 800; font-size: clamp(30px, 3.8vw, 46px); line-height: 1.1">สั่งให้ทั้งรันคลับ ยิม หรือสตูดิโอ</p>
+<p style="margin: 0; max-width: 560px">สั่งหลายคู่ คละสีคละไซส์ หรืออยากคุยเรื่องลายของทีม ทักทีมงานทาง LINE</p>
+</div>
+<a class="am-btn" href="{{lineTeam}}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; padding: 0 24px; border-radius: 999px; border: 2.5px solid #17120F; background: #06C755; color: #17120F; font-family: Kanit, sans-serif; font-weight: 700; font-size: 17px; text-decoration: none; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"></path></svg><span>คุยเรื่องออเดอร์ทีม</span></a>
+</div>
+</div>
+</section>
+
+<section id="faq" style="padding: 0 0 80px">
+<div style="width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 24px; box-sizing: border-box; max-width: 900px; display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; flex-direction: column; gap: 6px"><p style="margin: 0; font-family: Kanit, sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; color: #B3121F">FAQ</p><h2 style="margin: 0; font-family: Kanit, sans-serif; font-weight: 800; font-size: clamp(32px, 4.4vw, 52px); line-height: 1.1; color: #17120F">คำถามก่อนสั่ง</h2></div>
+<div style="display: flex; flex-direction: column; border-top: 2.5px solid #17120F">
+<details style="border-bottom: 2.5px solid #17120F"><summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 4px; font-family: Kanit, sans-serif; font-weight: 600; font-size: 19px">RUN ควรเลือกไซส์ไหน<span class="am-plus" style="font-size: 28px; line-height: 1; transition: transform .2s">+</span></summary><p style="margin: 0; padding: 0 4px 20px; color: #3D3632">เท้ายาว 22–26 ซม. (EU 35–41) เลือก 22–26 CM · เท้ายาว 26–30 ซม. (EU 41–46) เลือก 26–30 CM · ถ้าเท้า 26 ซม. หรือเบอร์ 41 ชอบกระชับเลือก 22–26 CM ชอบสบายเลือก 26–30 CM ทั้งสองไซส์กว้างเท่ากัน ต่างกันแค่ความยาว</p></details>
+<details style="border-bottom: 2.5px solid #17120F"><summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 4px; font-family: Kanit, sans-serif; font-weight: 600; font-size: 19px">ค่าส่งเท่าไหร่<span class="am-plus" style="font-size: 28px; line-height: 1; transition: transform .2s">+</span></summary><p style="margin: 0; padding: 0 4px 20px; color: #3D3632">[ใส่อัตราค่าส่ง]</p></details>
+<details style="border-bottom: 2.5px solid #17120F"><summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 4px; font-family: Kanit, sans-serif; font-weight: 600; font-size: 19px">สีหรือไซส์ที่อยากได้หมด ทำยังไง<span class="am-plus" style="font-size: 28px; line-height: 1; transition: transform .2s">+</span></summary><p style="margin: 0; padding: 0 4px 20px; color: #3D3632">เลือกสีและไซส์นั้นในหน้าสินค้า แล้วกด "พรีออเดอร์ทาง LINE" แจ้งรุ่น สี ไซส์ และจำนวนในแชท ทีมงานจะแจ้งรอบผลิตและวันส่ง</p></details>
+<details style="border-bottom: 2.5px solid #17120F"><summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 4px; font-family: Kanit, sans-serif; font-weight: 600; font-size: 19px">ชำระเงินยังไง<span class="am-plus" style="font-size: 28px; line-height: 1; transition: transform .2s">+</span></summary><p style="margin: 0; padding: 0 4px 20px; color: #3D3632">สแกน PromptPay QR ด้วยแอปธนาคารใดก็ได้ ไม่ต้องใช้บัตร [ยืนยันวิธีชำระเงินที่จะใช้จริง]</p></details>
+</div>
+</div>
+</section>
+
+<footer style="background: #17120F; color: #FFFFFF; padding: 48px 0">
+<div style="width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; align-items: flex-start">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<img src="/images/brand/logo-white.webp" alt="Angry Muscles" style="height: 56px; width: auto; display: block">
+<p style="margin: 0; color: #E9E2DD">FOR ANGRY MUSCLES AND HAPPY HEARTS.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; font-weight: 600">ติดต่อ</p>
+<a href="{{lineGeneral}}" target="_blank" rel="noopener" style="color: #FFFFFF">LINE @angrymuscles</a>
+<p style="margin: 0; color: #E9E2DD">ช้อปได้ที่ TikTok Shop และ Shopee ด้วย</p>
+</div>
+</div>
+<div style="width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 24px; box-sizing: border-box; margin-top: 28px; color: #C9C0BA; font-size: 14px">© 2026 Angry Muscles</div>
+</footer>
+
+<sc-if value="{{detailOpen}}">
+<div style="position: fixed; inset: 0; z-index: 50; background: rgba(23,18,15,0.6); display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box">
+<div role="dialog" aria-modal="true" aria-label="{{detail.name}}" style="position: relative; width: 100%; max-width: 980px; max-height: calc(100vh - 32px); overflow: auto; background: #FFFBF7; border: 2.5px solid #17120F; border-radius: 26px; display: flex; flex-wrap: wrap">
+<button onClick="{{closeDetail}}" aria-label="ปิด" style="position: absolute; top: 14px; right: 14px; width: 44px; height: 44px; border-radius: 999px; border: 2.5px solid #17120F; background: #FFFFFF; color: #17120F; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg></button>
+<div style="flex: 1 1 360px; height: 460px; display: flex; align-items: center; justify-content: center; background: {{detail.cardBg}}; border-right: 2.5px solid #17120F">
+<sc-if value="{{detail.v.hasImg}}" hint-placeholder-val="{{ true }}"><img src="{{detail.v.img}}" alt="{{detail.v.alt}}" loading="lazy" style="width: 100%; height: 100%; object-fit: contain; padding: {{detail.v.pad}}px; box-sizing: border-box"></sc-if>
+</div>
+<div style="flex: 1 1 380px; min-width: 0; padding: 32px; display: flex; flex-direction: column; gap: 18px; box-sizing: border-box">
+<div style="display: flex; flex-direction: column; gap: 4px; padding-right: 48px">
+<p style="margin: 0; font-family: Kanit, sans-serif; font-weight: 800; font-size: 32px; line-height: 1.1">{{detail.name}}</p>
+<p style="margin: 0; color: #5A514C">{{detail.sub}}</p>
+<p style="margin: 6px 0 0; font-family: Kanit, sans-serif; font-weight: 700; font-size: 28px">{{detail.priceText}}</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; font-weight: 600">สี: {{detail.colorName}}</p>
+<div style="display: flex; gap: 12px; flex-wrap: wrap">
+<sc-for list="{{detail.colors}}" as="c" hint-placeholder-count="6">
+<button onClick="{{c.pick}}" aria-label="{{c.label}}" aria-pressed="{{c.selected}}" style="position: relative; width: 40px; height: 40px; border-radius: 999px; border: 2px solid #17120F; background: {{c.hex}}; box-shadow: {{c.ring}}; cursor: pointer; overflow: hidden; padding: 0">
+<sc-if value="{{c.out}}"><span style="position: absolute; left: -4px; top: 17px; width: 48px; height: 3px; background: #D12129; transform: rotate(-45deg)"></span></sc-if>
+</button>
+</sc-for>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; font-weight: 600">ไซส์</p>
+<div style="display: flex; gap: 10px; flex-wrap: wrap">
+<sc-for list="{{detail.sizes}}" as="z" hint-placeholder-count="2">
+<button onClick="{{z.pick}}" aria-pressed="{{z.selected}}" style="min-height: 48px; padding: 0 18px; border-radius: 14px; border: 2.5px solid #17120F; background: {{z.bg}}; color: {{z.fg}}; font-family: Kanit, sans-serif; font-weight: 600; font-size: 17px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px">
+<span style="text-decoration: {{z.deco}}">{{z.label}}</span>
+<sc-if value="{{z.out}}"><span style="font-size: 12px; font-weight: 600; background: #D12129; color: #FFFFFF; border-radius: 999px; padding: 1px 8px">หมด</span></sc-if>
+</button>
+</sc-for>
+</div>
+<p style="margin: 0; font-size: 14px; color: #5A514C">{{detail.sizeNote}}</p>
+<sc-if value="{{detail.hasChart}}"><button onClick="{{detail.toggleChart}}" style="align-self: flex-start; min-height: 44px; padding: 0; border: 0; background: transparent; color: #B3121F; font-weight: 600; font-size: 15px; text-decoration: underline; cursor: pointer">{{detail.chartLabel}}</button></sc-if>
+<sc-if value="{{detail.showChart}}"><img src="{{detail.chart}}" alt="ตารางไซส์ {{detail.name}}" style="width: 100%; height: auto; border: 2px solid #17120F; border-radius: 14px; display: block; background: #FFFFFF"></sc-if>
+</div>
+<div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap">
+<p style="margin: 0; font-weight: 600">จำนวน</p>
+<div style="display: flex; align-items: center; border: 2.5px solid #17120F; border-radius: 999px; overflow: hidden; background: #FFFFFF">
+<button onClick="{{detail.dec}}" aria-label="ลดจำนวน" style="width: 46px; height: 44px; border: 0; background: transparent; color: #17120F; font-size: 22px; font-weight: 700; cursor: pointer">−</button>
+<span style="min-width: 32px; text-align: center; font-family: Kanit, sans-serif; font-weight: 700; font-size: 18px">{{detail.qty}}</span>
+<button onClick="{{detail.inc}}" aria-label="เพิ่มจำนวน" style="width: 46px; height: 44px; border: 0; background: transparent; color: #17120F; font-size: 22px; font-weight: 700; cursor: pointer">+</button>
+</div>
+</div>
+<sc-if value="{{detail.inStock}}" hint-placeholder-val="{{ true }}">
+<button class="am-btn" onClick="{{detail.add}}" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 24px; border-radius: 999px; border: 2.5px solid #17120F; background: #17120F; color: #FFFFFF; font-family: Kanit, sans-serif; font-weight: 600; font-size: 17px; text-decoration: none; cursor: pointer; min-height: 56px; font-size: 18px; width: 100%"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l1 13H5z"></path><path d="M9 7a3 3 0 0 1 6 0"></path></svg><span>ใส่ตะกร้า · {{detail.total}}</span></button>
+</sc-if>
+<sc-if value="{{detail.out}}">
+<div style="display: flex; flex-direction: column; gap: 10px; background: #FFFFFF; border: 2.5px dashed #17120F; border-radius: 18px; padding: 16px">
+<p style="margin: 0; font-weight: 600">{{detail.outText}}</p>
+<a class="am-btn" href="{{detail.lineHref}}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; padding: 0 24px; border-radius: 999px; border: 2.5px solid #17120F; background: #06C755; color: #17120F; font-family: Kanit, sans-serif; font-weight: 700; font-size: 17px; text-decoration: none; cursor: pointer; width: 100%; box-sizing: border-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"></path></svg><span>พรีออเดอร์ทาง LINE</span></a>
+<p style="margin: 0; font-size: 14px; color: #5A514C">แจ้งในแชทว่า: <strong style="color: #17120F">{{detail.lineMsg}}</strong> ทีมงานจะแจ้งรอบผลิตและวันส่ง</p>
+</div>
+</sc-if>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px">
+<sc-for list="{{detail.features}}" as="f" hint-placeholder-count="3"><li style="display: flex; gap: 10px; align-items: flex-start"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#17120F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>{{f.t}}</span></li></sc-for>
+</ul>
+<p style="margin: 0; font-size: 14px; color: #5A514C">{{detail.material}}</p>
+</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{cartOpen}}">
+<div style="position: fixed; inset: 0; z-index: 60; background: rgba(23,18,15,0.6); display: flex; justify-content: flex-end">
+<div role="dialog" aria-modal="true" aria-label="ตะกร้าสินค้า" style="width: 100%; max-width: 440px; height: 100vh; background: #FFFBF7; border-left: 2.5px solid #17120F; display: flex; flex-direction: column; box-sizing: border-box">
+<div style="display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-bottom: 2.5px solid #17120F">
+<p style="margin: 0; font-family: Kanit, sans-serif; font-weight: 800; font-size: 26px">{{cartTitle}}</p>
+<button onClick="{{closeCart}}" aria-label="ปิดตะกร้า" style="width: 44px; height: 44px; border-radius: 999px; border: 2.5px solid #17120F; background: #FFFFFF; color: #17120F; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg></button>
+</div>
+
+<sc-if value="{{stepCart}}" hint-placeholder-val="{{ true }}">
+<div style="flex: 1; overflow: auto; padding: 8px 24px">
+<sc-if value="{{cartEmpty}}"><div style="padding: 48px 0; text-align: center; display: flex; flex-direction: column; gap: 14px; align-items: center"><p style="margin: 0; font-family: Kanit, sans-serif; font-weight: 700; font-size: 22px">ตะกร้ายังว่าง</p><p style="margin: 0; color: #5A514C">เลือกถุงเท้าคู่แรกของคุณได้เลย</p><button class="am-btn" onClick="{{closeCart}}" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 24px; border-radius: 999px; border: 2.5px solid #17120F; background: #17120F; color: #FFFFFF; font-family: Kanit, sans-serif; font-weight: 600; font-size: 17px; text-decoration: none; cursor: pointer">ไปเลือกสินค้า</button></div></sc-if>
+<sc-for list="{{cartLines}}" as="l" hint-placeholder-count="2">
+<div style="display: flex; gap: 14px; align-items: center; padding: 16px 0; border-bottom: 2px solid #EAE2DC">
+<sc-if value="{{l.hasImg}}"><img src="{{l.img}}" alt="" style="width: 56px; height: 56px; flex: none; border-radius: 12px; border: 2px solid #17120F; background: #FFFFFF; object-fit: contain; padding: 4px; box-sizing: border-box"></sc-if><sc-if value="{{l.noImg}}"><span style="width: 56px; height: 56px; flex: none; border-radius: 12px; border: 2px solid #17120F; background: {{l.hex}}"></span></sc-if>
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+<p style="margin: 0; font-family: Kanit, sans-serif; font-weight: 700; font-size: 17px">{{l.name}}</p>
+<p style="margin: 0; font-size: 14px; color: #5A514C">{{l.variant}}</p>
+<div style="display: flex; align-items: center; gap: 10px; margin-top: 6px">
+<div style="display: flex; align-items: center; border: 2px solid #17120F; border-radius: 999px; background: #FFFFFF">
+<button onClick="{{l.dec}}" aria-label="ลดจำนวน" style="width: 40px; height: 40px; border: 0; background: transparent; color: #17120F; font-size: 20px; font-weight: 700; cursor: pointer">−</button>
+<span style="min-width: 24px; text-align: center; font-weight: 700">{{l.qty}}</span>
+<button onClick="{{l.inc}}" aria-label="เพิ่มจำนวน" style="width: 40px; height: 40px; border: 0; background: transparent; color: #17120F; font-size: 20px; font-weight: 700; cursor: pointer">+</button>
+</div>
+<button onClick="{{l.remove}}" style="min-height: 40px; border: 0; background: transparent; color: #B3121F; font-weight: 600; text-decoration: underline; cursor: pointer; padding: 0 4px">ลบ</button>
+</div>
+</div>
+<p style="margin: 0; font-family: Kanit, sans-serif; font-weight: 700; font-size: 17px">{{l.lineTotal}}</p>
+</div>
+</sc-for>
+</div>
+<sc-if value="{{hasItems}}">
+<div style="padding: 20px 24px; border-top: 2.5px solid #17120F; display: flex; flex-direction: column; gap: 10px; background: #FFFFFF">
+<div style="display: flex; justify-content: space-between"><span>ยอดสินค้า</span><span style="font-weight: 600">{{subtotal}}</span></div>
+<div style="display: flex; justify-content: space-between; color: #5A514C"><span>ค่าส่ง</span><span>[ใส่อัตราค่าส่ง]</span></div>
+<button class="am-btn" onClick="{{toCheckout}}" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 24px; border-radius: 999px; border: 2.5px solid #17120F; background: #17120F; color: #FFFFFF; font-family: Kanit, sans-serif; font-weight: 600; font-size: 17px; text-decoration: none; cursor: pointer; min-height: 56px; width: 100%; font-size: 18px">ไปชำระเงิน · {{subtotal}}</button>
+</div>
+</sc-if>
+</sc-if>
+
+<sc-if value="{{stepCheckout}}">
+<div style="flex: 1; overflow: auto; padding: 20px 24px; display: flex; flex-direction: column; gap: 14px">
+<label for="am-name" style="font-weight: 600">ชื่อผู้รับ</label>
+<input id="am-name" type="text" autocomplete="name" style="min-height: 48px; border-radius: 12px; border: 2px solid #17120F; padding: 0 14px; font-size: 16px; font-family: Anuphan, sans-serif">
+<label for="am-phone" style="font-weight: 600">เบอร์โทร</label>
+<input id="am-phone" type="tel" autocomplete="tel" style="min-height: 48px; border-radius: 12px; border: 2px solid #17120F; padding: 0 14px; font-size: 16px; font-family: Anuphan, sans-serif">
+<label for="am-addr" style="font-weight: 600">ที่อยู่จัดส่ง</label>
+<textarea id="am-addr" rows="3" autocomplete="street-address" style="border-radius: 12px; border: 2px solid #17120F; padding: 12px 14px; font-size: 16px; font-family: Anuphan, sans-serif; resize: vertical"></textarea>
+<button onClick="{{backToCart}}" style="align-self: flex-start; min-height: 44px; border: 0; background: transparent; color: #B3121F; font-weight: 600; text-decoration: underline; cursor: pointer; padding: 0">กลับไปแก้ตะกร้า</button>
+</div>
+<div style="padding: 20px 24px; border-top: 2.5px solid #17120F; display: flex; flex-direction: column; gap: 10px; background: #FFFFFF">
+<div style="display: flex; justify-content: space-between"><span>ยอดสินค้า</span><span style="font-weight: 600">{{subtotal}}</span></div>
+<button class="am-btn" onClick="{{toPay}}" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 24px; border-radius: 999px; border: 2.5px solid #17120F; background: #17120F; color: #FFFFFF; font-family: Kanit, sans-serif; font-weight: 600; font-size: 17px; text-decoration: none; cursor: pointer; min-height: 56px; width: 100%; font-size: 18px">ชำระด้วย PromptPay QR</button>
+</div>
+</sc-if>
+
+<sc-if value="{{stepPay}}">
+<div style="flex: 1; overflow: auto; padding: 28px 24px; display: flex; flex-direction: column; gap: 16px; align-items: center; text-align: center">
+<div style="width: 220px; height: 220px; border: 2.5px dashed #17120F; border-radius: 18px; display: flex; align-items: center; justify-content: center; background: #FFFFFF; font-family: Kanit, sans-serif; font-weight: 600; color: #5A514C">PromptPay QR</div>
+<p style="margin: 0; font-family: Kanit, sans-serif; font-weight: 800; font-size: 30px">{{subtotal}}</p>
+<p style="margin: 0; color: #3D3632">สแกนด้วยแอปธนาคาร แล้วอัปโหลดสลิปเพื่อยืนยันคำสั่งซื้อ</p>
+<p style="margin: 0; font-size: 14px; color: #5A514C; background: #FFF1D6; border: 2px solid #17120F; border-radius: 12px; padding: 10px 14px">หน้าตัวอย่าง: ขั้นนี้จะเชื่อมกับระบบชำระเงินจริงตอนทำเว็บ ยังไม่รับเงินจริง</p>
+<button class="am-btn" onClick="{{resetCart}}" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 24px; border-radius: 999px; border: 2.5px solid #17120F; background: #FFFFFF; color: #17120F; font-family: Kanit, sans-serif; font-weight: 600; font-size: 17px; text-decoration: none; cursor: pointer">เริ่มใหม่</button>
+</div>
+</sc-if>
+</div>
+</div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4900}}'>
+var LINE_OA = '%40angrymuscles';
+var LINE_URL = 'https://lin.ee/SNUS5D2';
+function lineHref(text) { return LINE_URL; }
+var RUN_SIZES = ['22–26 CM', '26–30 CM'];
+var RUN_NOTE = '22–26 CM = เท้า 22–26 ซม. (EU 35–41) · 26–30 CM = เท้า 26–30 ซม. (EU 41–46) · เท้า 26 ซม. ใส่ได้ทั้งสองไซส์';
+var FREE_NOTE = 'Free Size · รองรับความยาวเท้า 24–30 ซม.';
+var RUN_FEATURES = ['พื้นหนานุ่มเต็มฝ่าเท้า ลดแรงกระแทก', 'ตาข่ายระบายอากาศ ลดความอับชื้น', 'กระชับ ไม่ร่น ไม่ย้วย ไม่เลื่อน', 'Unisex · วิ่ง เทรล ยิม เวท HYROX'];
+var CAT_BG = { run: '#FFE3EB', pilates: '#ECE6FF', daily: '#FFF1D6', gear: '#E3F5EC' };
+var WHITE = '#F2EEF0', BLACK = '#141414', RED = '#D12129', PURPLE = '#7A4FB0', BLUE = '#1F6FD1';
+var IMG = '/_blob/';
+var SIZE_RUN = IMG + 'ca5417591544854a583bcde082193880', SIZE_TEE = IMG + '5724c89bdf0e1a35554d777411c9ce83';
+
+var PRODUCTS = [
+  { id: 'xmas', chart: SIZE_RUN, name: 'ANGRY RUN X’MAS', sub: 'RUN ลายพิเศษ · Limited Christmas Drop', price: 380, cat: 'run', unit: 'คู่',
+    sizes: RUN_SIZES, sizeNote: RUN_NOTE, material: '80% Nylon · 15% Elastic · 5% Spandex',
+    features: ['ลายลิมิเต็ด: MERRY / XMAS ด้านหน้า · ANGRY / MUSCLES ด้านหลัง', 'พื้นหนานุ่มเต็มฝ่าเท้า ลดแรงกระแทก', 'กระชับ ไม่ร่น ไม่ย้วย ไม่เลื่อน'],
+    colors: [ { name: 'X’MAS', hex: '#FFFFFF', img: IMG + '0acfee3e515d2f7e7ff3da7a7fe1be91', bg: '#F9F9F9' } ] },
+  { id: 'run', chart: SIZE_RUN, name: 'ANGRY RUN', sub: 'ถุงเท้าวิ่ง & เวท ซัพพอร์ตเต็มฝ่าเท้า', price: 340, cat: 'run', unit: 'คู่',
+    sizes: RUN_SIZES, sizeNote: RUN_NOTE, material: '80% Nylon · 15% Elastic · 5% Spandex', features: RUN_FEATURES,
+    colors: [
+      { name: 'White', hex: WHITE, img: IMG + '103ba6932b583ca4dc80b95257c4fe51' },
+      { name: 'Black', hex: BLACK, img: IMG + 'ef6aa08aed37c477010f92b28a6676b3' },
+      { name: 'Red', hex: '#B5093B', img: IMG + '9921b09c2a3e7a602e6ce2f2053cb220' },
+      { name: 'Neon Green', hex: '#CAEB12', img: IMG + '3fe1fde187adb6f466f579e34fe4a1ea' },
+      { name: 'Pink', hex: '#EA1869', img: IMG + '2a76f7eaa5c314fb7901d5c62fd2540d' },
+      { name: 'Mint', hex: '#208488', img: IMG + 'a00b57ed6b0c9a05d72b17787dcd7b61' },
+      { name: 'Purple', hex: '#744A9D', img: IMG + '785dbb2766c51f8f7f7586ab6c78f2be' },
+      { name: 'Blue gray', hex: '#055DB1', img: IMG + '74ad2e69770eb3ef3b4c38d28f6eac5a' },
+      { name: 'Orange', hex: '#E05919', img: IMG + 'ea71d64ba414560718844ddd4c5376cd' }
+    ] },
+  { id: 'grip', name: 'ANGRY GRIP', sub: 'ถุงเท้ากันลื่น พิลาทิส · โยคะ · บาร์เร่', price: 390, cat: 'pilates', unit: 'คู่',
+    sizes: ['Free Size'], sizeNote: FREE_NOTE, material: '100% Nylon + ปุ่มซิลิโคนกันลื่น',
+    features: ['ปุ่มซิลิโคนกันลื่นเต็มฝ่าเท้า หนึบติดพื้น', 'ซัพพอร์ตข้อเท้าและอุ้งเท้า', 'เหมาะกับพิลาทิส โยคะ บัลเลต์ / Barre และยิม'],
+    colors: [
+      { name: 'Black · ONE MORE REP', hex: BLACK, out: 'all', img: IMG + '06911fd2285e4aedb7a62b8f6dbf065c' },
+      { name: 'Purple · BURNING CORE', hex: PURPLE, img: IMG + '1036f611d116f4399f094c830c846457' },
+      { name: 'Blue · TUCK THAT TAILBONE', hex: BLUE, img: IMG + '54a2931d76d9d9ec0c4f0c37fc14ed83' }
+    ] },
+  { id: 'og', name: 'ANGRY OG', sub: 'ถุงเท้าข้อยาว ผ้าริบ โลโก้ปัก 7 สี', price: 340, cat: 'daily', unit: 'คู่',
+    sizes: ['Free Size'], sizeNote: FREE_NOTE, material: '100% Cotton ผ้าริบ',
+    features: ['ทรงข้อยาว เก็บขาเนียน ใส่กับผ้าใบ บูท หรือรองเท้าแตะ', 'กระชับแต่ไม่บีบขา ขอบบนแน่น ไม่ไหลลง', 'โลโก้ปัก Angry Muscles คมชัด ไม่ลอก'],
+    colors: [
+      { name: 'White', hex: '#EDEEF3', img: IMG + 'afc3291c40adfbef23786f414bd1cbd5' },
+      { name: 'Black', hex: BLACK, img: IMG + 'c516a816cc04f98cc16ec8768f415afc' },
+      { name: 'Red', hex: '#A1000C', img: IMG + 'f738b8de4b47c18f33710bdf90a88ed2' },
+      { name: 'Purple', hex: '#BFA1DE', img: IMG + '4ab99d553dc96ecaa1847fb4fb1c1347' },
+      { name: 'Pink', hex: '#F8AED1', img: IMG + 'a0e26c8b29e1a6985cd5ad998304a599' },
+      { name: 'Yellow', hex: '#F8CF03', img: IMG + '5cffca31a8a2a30384bcb6f273486497' },
+      { name: 'Green', hex: '#383C14', img: IMG + '49a26714293f2d087211c18fac461f3c' }
+    ] },
+  { id: 'maxrep', name: 'ANGRY MAX REP', sub: 'ถุงเท้าวิ่งข้อสั้น สีตามแถบที่ขอบข้อ', price: 290, cat: 'run', unit: 'คู่',
+    sizes: ['Free Size'], sizeNote: FREE_NOTE, material: '100% Polyester',
+    features: ['ทรงข้อสั้น เข้ากับรองเท้าทุกคู่', 'ซัพพอร์ตข้อเท้าและอุ้งเท้า ช่วยทรงตัวตอนเทรนหนัก', 'พื้นหนานุ่ม ระบายอากาศดี'],
+    colors: [
+      { name: 'Black', hex: BLACK, out: 'all', img: IMG + 'dc691674a7e49d8960834045f78093d9' },
+      { name: 'Red', hex: RED, img: IMG + '66e97a055e4a5a4af802f6e2b2ff54a8' },
+      { name: 'Blue', hex: BLUE, img: IMG + '475829f015f89e22574cdaccddb3528b' }
+    ] },
+  { id: 'pride', chart: SIZE_RUN, name: 'ANGRY RUN PRIDE', sub: 'RUN ลายพิเศษ · MOVE PROUD.', price: 380, cat: 'run', unit: 'คู่',
+    sizes: RUN_SIZES, sizeNote: RUN_NOTE, material: '80% Nylon · 15% Elastic · 5% Spandex', features: RUN_FEATURES,
+    colors: [ { name: 'Pride', hex: '#141414', img: IMG + 'edfa18263c0fabe08a74622604fb44e3', bg: '#ECE7E3' } ] },
+  { id: 'oversized', chart: SIZE_TEE, name: 'OVERSIZED TEE', sub: 'เสื้อทรงโอเวอร์ไซส์ Super Soft Cotton', price: 890, cat: 'gear', unit: 'ตัว',
+    sizes: ['S', 'M', 'L', 'XL'], sizeNote: 'รอบอก / ยาว (นิ้ว) · S 40 / 26.5 · M 44 / 27.5 · L 48 / 29.5 · XL 52 / 31.5', material: '100% Super Soft Cotton 180–190 GSM',
+    features: ['ผ้าทอแน่น สัมผัสเรียบ ซักหลายครั้งไม่เสียทรง', 'สกรีนโลโก้ ANGRY MUSCLES ที่หน้าอก'],
+    colors: [
+      { name: 'Black', hex: BLACK, out: ['M'], img: IMG + 'cfe93e7798e3daa37b720f1b30c282be' },
+      { name: 'White', hex: '#FFFFFF', img: IMG + '5b1185063c64d9ac729ff16af1fbe0bf' }
+    ] },
+  { id: 'babytee', chart: SIZE_TEE, name: 'BABY TEE', sub: 'เสื้อครอปเข้ารูป Super Soft Cotton', price: 590, cat: 'gear', unit: 'ตัว',
+    sizes: ['S', 'M', 'L', 'XL'], sizeNote: 'รอบอก / ยาว (นิ้ว) · S 34 / 21 · M 36 / 22 · L 38 / 23 · XL 40 / 24', material: '100% Super Soft Cotton 180–190 GSM',
+    features: ['ทรงเข้ารูป ตัวสั้น', 'สกรีนโลโก้ ANGRY MUSCLES ที่หน้าอก'],
+    colors: [
+      { name: 'Black', hex: BLACK, out: 'all', img: IMG + 'b078e877f0016989e7578bc92c51b9fb' },
+      { name: 'White', hex: '#FFFFFF', out: 'all', img: IMG + '11a4afaaa96632f02db7e275fa494971' }
+    ] },
+  { id: 'bandana', name: 'THE ANGRY BANDANA', sub: 'ผ้าโพกหัว · ผ้าพันคอ 55×55 ซม.', price: 590, cat: 'gear', unit: 'ผืน',
+    sizes: ['55×55 cm'], sizeNote: 'ขนาด 55×55 ซม.', material: '100% Spun Polyester',
+    features: ['นุ่ม แห้งเร็ว น้ำหนักเบา สีสดติดทน', 'คาดผม ผูกคอ ปิดหน้ากันแดดตอนปั่น ผูกกระเป๋า'],
+    colors: [
+      { name: 'HAPPY HEARTS (ดำ)', hex: BLACK, img: IMG + '42cdfda28741ca372d74269fe7abeb6d' },
+      { name: 'ANGRY MUSCLES (ชมพู)', hex: '#F8B0CD', img: IMG + '6f81fbd9fabd780a62992b875345be0b' },
+      { name: 'HAPPY HEARTS (ชมพู)', hex: '#F8B0CD' },
+      { name: 'ANGRY MUSCLES (ดำ)', hex: BLACK }
+    ] }
+];
+var CATS = [
+  { id: 'all', label: 'ทั้งหมด' }, { id: 'run', chart: SIZE_RUN, label: 'วิ่ง · HYROX · เวท' }, { id: 'pilates', label: 'พิลาทิส · โยคะ' },
+  { id: 'daily', label: 'ใส่ทุกวัน' }, { id: 'gear', label: 'เสื้อ & ของแต่ง' }
+];
+function findP(id) { for (var i = 0; i < PRODUCTS.length; i++) { if (PRODUCTS[i].id === id) return PRODUCTS[i]; } return null; }
+function isOut(c, size) { return c.out === 'all' || (Array.isArray(c.out) && c.out.indexOf(size) >= 0); }
+function colorAllOut(p, c) { return p.sizes.every(function (s) { return isOut(c, s); }); }
+function allOut(p) { return p.colors.every(function (c) { return colorAllOut(p, c); }); }
+function someOut(p) { return p.colors.some(function (c) { return p.sizes.some(function (s) { return isOut(c, s); }); }); }
+function baht(n) { return '฿' + n.toLocaleString('en-US'); }
+function vis(p, c) { return { img: c.img || '', hasImg: !!c.img, noImg: !c.img, alt: p.name + ' ' + c.name, pad: c.bg ? 0 : 14 }; }
+function firstAvail(p) {
+  for (var i = 0; i < p.colors.length; i++) {
+    for (var j = 0; j < p.sizes.length; j++) { if (!isOut(p.colors[i], p.sizes[j])) return { ci: i, size: p.sizes[j] }; }
+  }
+  return { ci: 0, size: p.sizes[0] };
+}
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { filter: 'all', openId: null, ci: 0, size: null, qty: 1, cart: [], cartOpen: false, step: 'cart', footMode: 'cm', footVal: '' };
+  }
+  addToCart(p, ci, size, qty) {
+    var key = p.id + '|' + ci + '|' + size;
+    var found = false;
+    var cart = this.state.cart.map(function (it) {
+      if (it.key === key) { found = true; return Object.assign({}, it, { qty: it.qty + qty }); }
+      return it;
+    });
+    if (!found) cart.push({ key: key, id: p.id, ci: ci, size: size, qty: qty });
+    this.setState({ cart: cart, openId: null, cartOpen: true, step: 'cart' });
+  }
+  changeQty(key, d) {
+    var cart = this.state.cart.map(function (it) { return it.key === key ? Object.assign({}, it, { qty: it.qty + d }) : it; })
+      .filter(function (it) { return it.qty > 0; });
+    this.setState({ cart: cart });
+  }
+  removeLine(key) { this.setState({ cart: this.state.cart.filter(function (it) { return it.key !== key; }) }); }
+  fitResult() {
+    var s = this.state, v = parseFloat(s.footVal);
+    var r = { title: '', body: '', free: '' };
+    if (s.footMode === 'cm') {
+      r.free = 'Free Size รองรับความยาวเท้า 24–30 ซม.';
+      if (isNaN(v)) { r.title = 'ใส่ความยาวเท้าก่อน'; r.body = 'เช่น 24.5 · ระบบจะบอกไซส์ที่เหมาะกับรุ่น RUN'; return r; }
+      if (v >= 24 && v <= 30) r.free = 'ใส่ได้ · Free Size รองรับความยาวเท้า 24–30 ซม.';
+      else r.free = 'เท้า ' + v + ' ซม. อยู่นอกช่วง 24–30 ซม. ของรุ่น Free Size ทัก LINE ให้ทีมช่วยดูได้';
+      if (v < 22) { r.title = 'เล็กกว่าไซส์ที่มี'; r.body = 'ไซส์เล็กสุดของ RUN รองรับเท้า 22 ซม. ทัก LINE ให้ทีมช่วยแนะนำ'; }
+      else if (v < 26) { r.title = '22–26 CM'; r.body = 'เท้า ' + v + ' ซม. เลือกไซส์ 22–26 CM'; }
+      else if (v === 26) { r.title = 'ได้ทั้งสองไซส์'; r.body = 'ชอบกระชับเลือก 22–26 CM · ชอบสบายเลือก 26–30 CM'; }
+      else if (v <= 30) { r.title = '26–30 CM'; r.body = 'เท้า ' + v + ' ซม. เลือกไซส์ 26–30 CM'; }
+      else { r.title = 'ใหญ่กว่าไซส์ที่มี'; r.body = 'ไซส์ใหญ่สุดของ RUN รองรับเท้า 30 ซม. ทัก LINE ให้ทีมช่วยแนะนำ'; }
+    } else {
+      r.free = 'รุ่น Free Size ดูจากความยาวเท้า 24–30 ซม. ลองสลับไปวัดเป็นเซนติเมตร';
+      if (isNaN(v)) { r.title = 'ใส่เบอร์รองเท้า EU ก่อน'; r.body = 'เช่น 39 · ระบบจะบอกไซส์ที่เหมาะกับรุ่น RUN'; return r; }
+      if (v < 35) { r.title = 'เล็กกว่าไซส์ที่มี'; r.body = 'ไซส์เล็กสุดของ RUN รองรับ EU 35 ทัก LINE ให้ทีมช่วยแนะนำ'; }
+      else if (v < 41) { r.title = '22–26 CM'; r.body = 'EU ' + v + ' เลือกไซส์ 22–26 CM'; }
+      else if (v < 42) { r.title = 'ได้ทั้งสองไซส์'; r.body = 'EU 41 ชอบกระชับเลือก 22–26 CM · ชอบสบายเลือก 26–30 CM'; }
+      else if (v <= 46) { r.title = '26–30 CM'; r.body = 'EU ' + v + ' เลือกไซส์ 26–30 CM'; }
+      else { r.title = 'ใหญ่กว่าไซส์ที่มี'; r.body = 'ไซส์ใหญ่สุดของ RUN รองรับ EU 46 ทัก LINE ให้ทีมช่วยแนะนำ'; }
+    }
+    return r;
+  }
+  renderVals() {
+    var self = this, s = this.state;
+    var cats = CATS.map(function (c) {
+      var on = s.filter === c.id;
+      return { label: c.label, pressed: on, bg: on ? '#17120F' : '#FFFFFF', fg: on ? '#FFFFFF' : '#17120F', pick: function () { self.setState({ filter: c.id }); } };
+    });
+    var products = PRODUCTS.filter(function (p) { return s.filter === 'all' || p.cat === s.filter; }).map(function (p) {
+      var fa = firstAvail(p), ao = allOut(p);
+      return { name: p.name, sub: p.sub, priceText: baht(p.price), cardBg: p.colors[fa.ci].bg || CAT_BG[p.cat], v: vis(p, p.colors[fa.ci]),
+        dots: p.colors.map(function (c) { return { hex: c.hex }; }), allOut: ao, partOut: someOut(p) && !ao,
+        open: function () { self.setState({ openId: p.id, ci: fa.ci, size: fa.size, qty: 1, showChart: false }); } };
+    });
+
+    var dp = s.openId ? findP(s.openId) : null, detail = null;
+    if (dp) {
+      var c = dp.colors[s.ci] || dp.colors[0];
+      var size = s.size || dp.sizes[0];
+      var out = isOut(c, size);
+      var colorPart = dp.colors.length > 1 || dp.kind !== 'sticker' ? ' สี ' + c.name : '';
+      var msg = 'สวัสดี สนใจพรีออเดอร์ ' + dp.name + colorPart + ' ไซส์ ' + size + ' จำนวน ' + s.qty + ' ' + dp.unit;
+      detail = {
+        name: dp.name, sub: dp.sub, priceText: baht(dp.price), material: dp.material, sizeNote: dp.sizeNote, cardBg: c.bg || CAT_BG[dp.cat],
+        colorName: c.name, v: vis(dp, c), qty: s.qty, total: baht(dp.price * s.qty), out: out, inStock: !out,
+        outText: (dp.colors.length > 1 ? 'สี ' + c.name + ' ' : '') + (dp.sizes.length > 1 ? 'ไซส์ ' + size + ' ' : '') + 'หมดชั่วคราว',
+        lineHref: lineHref(msg), hasChart: !!dp.chart, chart: dp.chart || '', showChart: !!dp.chart && !!s.showChart, chartLabel: s.showChart ? 'ซ่อนตารางไซส์' : 'ดูตารางไซส์', toggleChart: function () { self.setState({ showChart: !s.showChart }); }, lineMsg: dp.name + colorPart + ' ไซส์ ' + size + ' จำนวน ' + s.qty + ' ' + dp.unit,
+        features: dp.features.map(function (f) { return { t: f }; }),
+        colors: dp.colors.map(function (cc, i) {
+          var sel = i === s.ci, o = colorAllOut(dp, cc);
+          return { hex: cc.hex, label: cc.name + (o ? ' (หมด)' : ''), selected: sel, out: o,
+            ring: sel ? '0 0 0 3px #FFFBF7, 0 0 0 6px #17120F' : 'none',
+            pick: function () { self.setState({ ci: i }); } };
+        }),
+        sizes: dp.sizes.map(function (z) {
+          var sel = z === size, o = isOut(c, z);
+          return { label: z, selected: sel, out: o, bg: sel ? '#17120F' : '#FFFFFF', fg: sel ? '#FFFFFF' : '#17120F', deco: o ? 'line-through' : 'none',
+            pick: function () { self.setState({ size: z }); } };
+        }),
+        inc: function () { self.setState({ qty: s.qty + 1 }); },
+        dec: function () { self.setState({ qty: Math.max(1, s.qty - 1) }); },
+        add: function () { self.addToCart(dp, s.ci, size, s.qty); }
+      };
+    }
+
+    var count = 0, sub = 0;
+    var cartLines = s.cart.map(function (it) {
+      var p = findP(it.id), c = p.colors[it.ci];
+      count += it.qty; sub += p.price * it.qty;
+      var variant = (p.colors.length > 1 ? c.name + ' · ' : '') + it.size;
+      return { name: p.name, variant: variant, hex: c.hex, img: c.img || '', hasImg: !!c.img, noImg: !c.img, qty: it.qty, lineTotal: baht(p.price * it.qty),
+        inc: function () { self.changeQty(it.key, 1); }, dec: function () { self.changeQty(it.key, -1); }, remove: function () { self.removeLine(it.key); } };
+    });
+
+    var cm = s.footMode === 'cm';
+    return {
+      cats: cats, products: products, detailOpen: !!dp, detail: detail || { v: {}, colors: [], sizes: [], features: [] },
+      closeDetail: function () { self.setState({ openId: null }); },
+      cartOpen: s.cartOpen, cartLines: cartLines, cartCount: count, hasItems: count > 0, cartEmpty: count === 0, subtotal: baht(sub),
+      cartTitle: s.step === 'cart' ? 'ตะกร้า' : (s.step === 'checkout' ? 'ข้อมูลจัดส่ง' : 'ชำระเงิน'),
+      stepCart: s.step === 'cart', stepCheckout: s.step === 'checkout', stepPay: s.step === 'pay',
+      openCart: function () { self.setState({ cartOpen: true }); },
+      closeCart: function () { self.setState({ cartOpen: false, step: s.step === 'pay' ? 'cart' : s.step }); },
+      toCheckout: function () { self.setState({ step: 'checkout' }); },
+      backToCart: function () { self.setState({ step: 'cart' }); },
+      toPay: function () { self.setState({ step: 'pay' }); },
+      resetCart: function () { self.setState({ cart: [], step: 'cart', cartOpen: false }); },
+      modeCm: function () { self.setState({ footMode: 'cm', footVal: '' }); },
+      modeEu: function () { self.setState({ footMode: 'eu', footVal: '' }); },
+      modeCmOn: cm, modeEuOn: !cm,
+      modeCmBg: cm ? '#FFFFFF' : 'transparent', modeCmFg: cm ? '#17120F' : '#FFFFFF',
+      modeEuBg: !cm ? '#FFFFFF' : 'transparent', modeEuFg: !cm ? '#17120F' : '#FFFFFF',
+      footLabel: cm ? 'ความยาวเท้า (ซม.)' : 'เบอร์รองเท้า EU', footPlaceholder: cm ? 'เช่น 24.5' : 'เช่น 39',
+      footVal: s.footVal, onFoot: function (e) { self.setState({ footVal: e.target.value }); },
+      fit: this.fitResult(),
+      lineGeneral: 'https://lin.ee/SNUS5D2',
+      lineSize: lineHref('สวัสดี ช่วยแนะนำไซส์ถุงเท้าให้หน่อย'),
+      lineTeam: lineHref('สวัสดี สนใจสั่งถุงเท้าให้ทีม/คลับ')
+    };
+  }
+}
+
+</script>
+</body>
+</html>
